@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "hello world"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/arrabolu/practiceJs.git"
+  },
+  "keywords": [
+    "1"
+  ],
+  "author": "non",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arrabolu/practiceJs/issues"
+  },
+  "homepage": "https://github.com/arrabolu/practiceJs#readme"
+}
