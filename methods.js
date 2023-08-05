@@ -9,7 +9,7 @@ indexOf()
 forEach()
 sort()
 join()
-*/
+splice(start, delete count,Elements to add)
 
 
 const array1 = [20,30,40,1,3,5,222]
@@ -48,17 +48,13 @@ console.log(findAnagram('worth','throw'));
 function findDuplicates(array){
     return duplicatNumbs = array.filter((currentNum,currentIndex)=>     array.indexOf(currentNum) !== currentIndex)
 }
-const array = [1,2,3,4,6,5,1,3,6,7,89]
+const array4 = [1,2,3,4,6,5,1,3,6,7,89]
 
 
 console.log(findDuplicates(array));
 
 
-
-
-
-
-
+*/
 
 
 

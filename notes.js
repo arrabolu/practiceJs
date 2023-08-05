@@ -3,7 +3,8 @@
         ==========================Temporal dead zone==============
 
 Temporal Dead Zone : Temporal dead zone happens in let and const variables the time period
-of a let and cost variables which is declared and not yet initialized is called as temporal dead zone
+of a let and cost variables which is declared (Memory creating in Hoisting) and not yet initialized (In Hosting)
+is called as temporal dead zone
 
 var variables are stored in the Global area but let and const variables are stored in the script area(Not in the Global area)
 
@@ -11,7 +12,7 @@ var variables are stored in the Global area but let and const variables are stor
 
 Type Error : When there is a type mismatch then we can get type error
 Syntax Error : Syntax error when the code will not execute it will give error straight away
-Refference error : When there is not variable in the scope (window scope , block scope ) we can get Refference error
+Refference error : When there is no variable in the scope (window scope , block scope ) we can get Refference error
                    we can get reference error when we are in temporal dead zone 
 
                 =============== var vs let vs const =====================
@@ -243,5 +244,13 @@ it is called as blocking of the main thread
      and Submit will be the child of it 
 
     3. createTextNode() ------> it will just create a text element (Node)
+
+
+    <----------------Spread Operatior vs Rest Operators ------>
+
+
+    Spread Operator is like Unpacking data , It can change the array of the elments to only values [1,2,3,4] ---> 1 2 3 4
+
+    Rest Operatior is like packing Data , We can pass multiple arguments to a function in which it has only one parameter 
 
 */

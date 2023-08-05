@@ -476,9 +476,50 @@ console.log(output);
 
 console.log(users[0]['firstName']); */
 
-for (let x = 0; x < 5; x++) {
-    let btn = document.createElement('button') // <button> </button>
-    btn.appendChild(document.createTextNode('Button' + i)) // Button 0
-    btn.addEventListener('click',function() {console.log(i);})
-    document.body.appendChild(btn)
+// for (let x = 0; x < 5; x++) {
+//     let btn = document.createElement('button') // <button> </button>
+//     btn.appendChild(document.createTextNode('Button' + i)) // Button 0
+//     btn.addEventListener('click',function() {console.log(i);})
+//     document.body.appendChild(btn)
+// }
+
+/* 
+let array = [1,2,3,4,5,6,7,8,9]
+
+// spread operator
+  console.log(...array);
+
+let names = ['peter', 'parker', 'John']
+
+console.log(...names); // spread operator
+
+  let name = "vinay"
+
+  console.log([...name]);
+
+  let names1 = [1,2,3,4,5,6,7,8,9,10]
+
+  let obj = {...names1}
+
+  console.log(obj);
+
+function demoRest(...data) {
+   console.log(data)
+   console.log(...data);
 }
+
+demoRest(names) //['peter', 'parker', 'John'] */
+
+
+const promise1 = new Promise((resolve, reject) =>{
+       console.log("2");
+      resolve("Success")
+})
+
+
+promise1.then((res) =>{
+  console.log("Ronaldo");
+  console.log(res)
+})
+
+console.log("hello world");
