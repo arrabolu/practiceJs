@@ -70,5 +70,70 @@ client secret then we can get access token , id token and refresh token and its 
 call apis with the given access token this is the authorization code flow in oAuth2.0 
 
 
+        ========================== Component =================
+Component is a Directive and also called as Building block of a angular project , where it consists of .html and .css files and .ts files
+combined together in ts file for every component it has a decorator (Componnet decorator) in which we will
+pass a matadata of selector tag , templateUrl , and providers array 
+
+         ================ Providers =================
+
+Providers array can be used in the decorators like component , NgModule where when we what to Use a 
+Service in a component the we need to add the service in the providers array , When we add the providers 
+array in the modular level and add a service to it, it will provide the service to whole project 
+
+it will be stored as {provide : serviceNmae , useClass : serviceName },
+
+we can also use the injection tokens in app module where we create a object with injectionTokens and declare in providers array ,
+
+We can use the injection tokens with @Inject('Token_name') in constructor where we need to inject the service 
+
+In a component we can also inject a service with another way like @inject('ServiceName') 
+We can also pass the data form one componnet to another by use of services by emitting the data and subscribing 
+ it to the eventEmmiter varibale  in a componnet where we need the data.
+ 
+
+ ============== Pipes ===============
+ With pipes we can trasform the data from one form to another , It is one of the powerful feature of the 
+ angular We can create a pipe with ts class we need to annotate with @pipe and in metadata we need to pass the 
+ name of the pipe and by default pipes are pure pipes , We have some inbuild pipes in angular like date
+ pipe , Currency pipe , lowercase pipe , and uppercase pipe etc , When we create a custom pipe we need to 
+ declare in app module and we need to implement pipeTransform object to the custom pipe and there we can 
+ override the trasform method , Generally we have two kind of pipes Pure and impure pipe 
+ When there is a pure change in the element then only the pure pipe is called , so the pure change is 
+ change in the variables or premitive type variables(like Number , string , boolean )
+ , When there is a change in referance of referance type(like objects or arrays) changes   it will be considered 
+ as a pure change ,If there is a change in property of the reference type it will be called as impure change
+  here in order to handle the change we need to change the reference , so in this case pure pipe is not called
+Angular generally recommends not to use the pipes for filtering and sorting in application , ONly when we 
+handle the impure change we can use it for filtering and sorting , We can make a pipe to impure by 
+keeping the pure property in metadata to false , The disadvantage of the impure pipe is it will call for 
+every change detection cycle and it will effect the application performance in a high manner
+There is another pipe to handle the asynchronous call this is called as async pipe it will show the data
+after the promise resolved or observable is subscribed
+
+
+============= Directives =============================
+
+There are 3 directives in Angular which are 
+1. Structural directives --> Where we can change the dom structure with this directive like *ngFor , *ngIf , *ngSwitch
+2. Atribute directives ---> Where we can change the Appearance and behavior of the dom with modifing the dom attributes
+Ex : ngClass and ngStyle directives , ngModel
+3. Component directives ---> Componnet Directives are the important directives , with out component directives 
+we cannot create a angular project 
+
+isClassApplied = true 
+whiteColor = white
+
+Ex : [ngClass]= "{ 'margin-top-4' : isClassApplied}" --> ngClass can add or remove the styles for any dom element dynamically
+Ex : [ngStyle] = "{'color': whiteColor }" --> ngStyle can change the behaviour dynamically it can change the color when there is 
+a differenrt use loggined
+
+Building blocks of angular --> Services , Modules , components , templates, metadata, data binding , directives and dependency injection
+
+Life cycle hooks of Angular (8) --> 
+constructor ngOnChanges, ngOnInit, ngDoCheck , ngAfterContentInit, ngAfterContentChecked , ngAfterViewInit, ngAfterViewChecked, ngOnDestroy
+
+Angular modules always load eagerly but with the lazy loading concept only the modules will load when the route 
+is called 
 
 */

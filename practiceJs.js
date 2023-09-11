@@ -511,15 +511,45 @@ function demoRest(...data) {
 demoRest(names) //['peter', 'parker', 'John'] */
 
 
-const promise1 = new Promise((resolve, reject) =>{
-       console.log("2");
-      resolve("Success")
-})
+/* console.log("hello here is the js demo");
+
+for (let i = 1; i <= 5; i++) {
+  setTimeout(()=>{
+    console.log(i); 
+  },1000)
+}
+
+  console.log("------------------------------------------------");
+
+for(var i = 1 ; i <= 5; i++) {
+  setTimeout(()=>{
+    console.log(i);
+  },1000)} */
 
 
-promise1.then((res) =>{
-  console.log("Ronaldo");
-  console.log(res)
-})
+  // let a = {
+  //   name : "parker",
+  //   city : "localhost",
+  //   state : "state",
+  // }
 
-console.log("hello world");
+  // Object.assign(a , {name : "peter", city : "localhost:5050"});
+
+  // console.log(a);
+
+// const numbers = [1,2,3,4,5]
+
+//   const { one , two , three , four , five} = numbers
+
+//   console.log(one);
+
+async function doSomeThing(){
+
+ const result = await fetch('https://dummyjson.com/products/1')
+  
+  console.log(await result.json())
+}
+
+doSomeThing()
+
+

@@ -191,14 +191,16 @@ observables are stored in microtask queue (It will be more prioritize)
 
         ================== Javascript runtime Environment ===================
 
-Javascript runtime Environment consists of Js Engine Event Loop , Call stack , microtask queue and 
+Javascript runtime Environment consists of Js Engine Event Loop , Call back queue , microtask queue and 
 built-in methods , Chrome browser uses v8 Engine same like node.js  Js Engine has Call stack,
 Heap stack , GC(Garbage collector) ,Interpreter and compiler 
 
      * JS  engine is a piece of code
 
-Js code goes into js engin for 
+Js code goes into js engine for 
  *Parsing ----> Compiling -----> Execution 
+ *parding code can transform to AST 
+ compiling is converting js code to bite code
 ANy programming language can be called as compiletime programming language or Interpreter type language
 Interpreter type ---> It checks the code line by line it doesnt know the next what will be the next line
 Compile-time type ----> It checks the code and rearrangs the code correctly and compiles once the 
@@ -224,7 +226,19 @@ the callback fn to the call stack
 it is called as blocking of the main thread
 
 
-     =================  Object coping ===========
+     =================  Object coping (Deep coping vs shallow copy) ===========
+     In general when we assign a variable with another variable then try to change the value it wont changed
+but when we do same thing with objects it will change , Because when we copy a variable it will create a new object
+new memory for the varible , but when we assign a object to a new variable,only the reference of the object(memory reference)  
+is assigned
+
+to alter this condition we has shallow copy and deep copy , shallow copy can be done by object.assign()
+and also with object destructring 
+and deep copy can be done by cunverting the object to string with JSON.stringify() and again we need to 
+parse it with JSON.parse()
+
+Object.assign() is used to copy the object Object.assign(target, source)
+
 */
 
 
@@ -253,4 +267,79 @@ it is called as blocking of the main thread
 
     Rest Operatior is like packing Data , We can pass multiple arguments to a function in which it has only one parameter 
 
+    ----------- Promise.all() and Promise.allSettled()  ---------->
+
+    We will use promise.all() and promise.allSettled() in the case of handling array of promises 
+    Promise.all()  and Promise.allSettled() returnes promise
+    Where all() and allSettled() takes array of promises and returnes result of the promises
+    
+    Promise.all() will be usesful only all the promises in the array should be resolved or if there is one rejected
+    promise is there then it will return 1st rejected promise in catch
+
+    But for promise.allSettled() it will return array of the promises status and reason or success messgae
+    of the respective promises will be shown
+
+    ---------------------> Javascript Execution ---------------------------------------------------->
+
+    Generally JavaScript code can be interpreted before the execution state starts , means it will directly 
+    gives the result before converting it to byte code , interpreter means it  will check code  line by line
+    and gives the output, Symultaneously parsing and compilation will be performed
+
+    we can see the output of the code as 
+
+    console.log("Hello") // it will gives the output as hello and then gives the error 
+    console.log(Hello)// hello is not defined , we can conclude it as it will interpretes by line by line
+
+    Javascript code before executing it transpiles the code from different script files like typescript
+    nextJs or modern es6 javascript files to legacy javascript files and converts the js code to AST
+    (Abstract Syntax Tree) Which can be converted to machine code or byte code and furter uses the 
+    JIT compiler , Jit compiler changes the whole code to byte code at the time of runtime and executes it 
+    it will be a faster execution of the code
+
+    Parsing ---> compilation ----> Execution 
+
+
+    
+  <--------------------Call--------------->
+  Call method can be userd to invoke a function by passing a reference of the varible or
+ object which is pointed to this keyword 
+
+ <---------------------Apply--------------->
+  With the help of apply method we can invoke a function and pass reference which is pointing to a 
+  this keyword and send parameter will bbe array of the values what should me the next arguments of 
+  the function
+
+  <----------------------Bind----------------->
+  bind will be same as the call and apply but it will return a function which we can invoke when 
+  we need after some time 
+
+
+
+const obj = {
+     firstName : "kyllian",
+     lastname : "Mbappe"
+   }
+   
+   const obj1 = {
+     firstName : "Christiano",
+     lastname : "Ronaldo"
+   }
+   
+   function printInfo(place , club){
+     return console.log(`${this.firstName} ${this.lastname} from ${place} plays for ${club}`)
+   }
+   
+   printInfo.call(obj, "France" , "PSG") // call method  --> kyllian Mbappe from France plays for PSG
+   printInfo.apply(obj1, ["Portugal" , "MU"]) // apply method --> Christiano Ronaldo from Portugal plays for Mu
+   const callingBind = printInfo.bind(obj1, ["France" , "PSG"]) 
+   
+    callingBind() ----> Christiano Ronaldo from Portugal plays for MU
+
+
+
 */
+
+
+
+
+ 
