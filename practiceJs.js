@@ -543,13 +543,13 @@ for(var i = 1 ; i <= 5; i++) {
 
 //   console.log(one);
 
-async function doSomeThing(){
+// async function doSomeThing(){
 
- const result = await fetch('https://dummyjson.com/products/1')
+//  const result = await fetch('https://dummyjson.com/products/1')
   
-  console.log(await result.json())
-}
+//   console.log(await result.json())
+// }
 
-doSomeThing()
+// doSomeThing()
 
 

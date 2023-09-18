@@ -408,3 +408,40 @@ promise.then((result)=>{
         console.log(result);
 })
 
+
+
+// for (let i = 0; i < 5; i++)
+// {
+//     setTimeout(function() { console.log(i); }, i * 1000 );
+    
+// }
+
+// function sum(a, b=0){
+//     return a + b
+// }
+
+// function sum(...args){
+    
+// }
+
+// console.log(sum(2,3));
+// console.log(sum(2)(3));
+
+// var myObject = {
+//         foo: "bar",
+//         func: function() {
+//             var self = this;
+//             console.log("outer func:  this.foo = " + this.foo); // bar
+//             console.log("outer func:  self.foo = " + self.foo); // bar
+//             (function() {
+//                 console.log("inner func:  this.foo = " + this.foo); //undefined
+//                 console.log("inner func:  self.foo = " + self.foo); //undefined
+//             }());
+//         }
+//     };
+    
+//     (function (){
+        
+//     }())
+    
+//     myObject.func();

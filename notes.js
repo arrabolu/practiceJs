@@ -23,6 +23,16 @@ let varibales ===>  let declarations can be reinitialized but cannot be redeclar
 const variables ==> const variables are strict variables, we need to initialize when we are declaring it straight away
                      it cannot be redeclared and reinitialized
 
+                     <--------------   Hosting  ---------------->
+
+Hosting : Variables and function declarations are moved up the code in the javascript when we run a js file there will 
+be first memory allocation for varibales then after memory allocation the data is initialized to the variables,
+but hoising is not applicable for function expressions 
+
+                    <----------------  Prototype  ---------------->
+     In javascript prototype is a feature with which we can inherit properties form one another , when we call any fuction
+or variable in a object it will first checks the its own scope then it will check its prototype scope and it will also 
+check its prototype prototype scope and returns the value it is also known as prototype chain
 
 */
 
@@ -70,7 +80,7 @@ When a server restricted to send a requestes only for some particular domain the
 When there is a header like accept-control-allow-orign * in serverresponse then from any origin we can send 
 the requests 
 
-When a client is sending a request to server with not a standard headers then client will send a 
+When a client is sending a request to server with not a standard headers then browser will send a 
 PRE-FLIGHT(pre-flight) request to server that means it(client) is asking that in i am sending these headers(which are 
 not a standard http headers ) and my request is comming from this origin from this orign is it ok 
 preflight call will be in OPTIONS method then server will respond with headers like 
@@ -334,6 +344,54 @@ const obj = {
    const callingBind = printInfo.bind(obj1, ["France" , "PSG"]) 
    
     callingBind() ----> Christiano Ronaldo from Portugal plays for MU
+
+
+    <------------------- Event Bubbling and Event Capturing ---------------->
+
+    Event Bubbling : When we have a div and a button in the div , if we put a event listiner to that
+    button the event will be propagate in such a way that first will be propagated with button then 
+    its parent div and then its parent div (body) like that it will be propagated currently js is using 
+    event bubbling by default , if we want to stop the propagation we need to add a onclick event
+    and we need to attach event.stopPropagation() to it so it wont get propagated
+
+    button --> div --> body --> html
+
+    Event Capturing : It is the reverse of the event Bubbling event first the event is propagated from the 
+    parent element to child element where the event will be started  like it will be in a manner that
+
+    html --> body --> div --> button
+
+    <------------------ Event Deligation --------------->
+
+    lets consider there are items in the page and when we have single event listener to every item
+    imagine our web page will be full of event , it takes lot of data to handle all the event and our 
+    web page will be get slow by keeping all the events , so we can handle this kind of challange with 
+    the help of event Bubbling , When we click any item the event will be propagated we can attach the event
+    to its parent element and we can listen feom the parent element , we can eliminate all the events
+    and insted we can put only one event on parent element
+
+   <-------- Currying in js -------------->
+   Currying in js is a technique used for loose coupling the multiple arguments in  a function and breakdown it to 
+  single arguments we will pass the previous argument to the next function with the help of closure,
+    it can be handled with the help of clousures or bind method 
+
+    Example:
+
+   let multiply = function (a) {
+     return function(b) {
+          console.log(a*b);
+     }
+    }
+
+   let multiplyByTwo =  multiply(2)
+    multiplyByTwo(3)
+
+
+    <--------------- this key word ---------------->
+    this keyword is defined by where the this keyword is present and by which it is called , When this keyword is 
+    present in a outof function it will return the window object and this keyword which is present in  a function and 
+    we are calling the function with a object then it will return the object , by which it is called
+
 
 
 
