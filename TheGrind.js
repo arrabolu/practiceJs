@@ -14,17 +14,15 @@ NodeJs  ----->
 
 
                                    Objectives
-1.At morning daily spend 2 Hours --> practice Js code snippets, understanding js and angular Concepts
-(Need to update the Naukari profile daily)
-2.Need to spend atleast 40 minutes on applying for jobs at night @ 10PM
-3.Need to spend good time on good understanding Js concepts and Angular concepts
-4.Need to start practice on js code Snippets 
-5.Need to practice Unit testing in angular 
-6.Should get basic understanding on Html and CSS
-7.Should get Good understanding on Node.js
+1.Methods (String , Array, Date, Math) 
+2.To Perfect in Angular concepts 
 
 
 
+
+                            Main objectives
+1.Improve logics 
+2.Improve angular developement skills
 
 
 

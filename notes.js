@@ -392,8 +392,57 @@ const obj = {
     present in a outof function it will return the window object and this keyword which is present in  a function and 
     we are calling the function with a object then it will return the object , by which it is called
 
+    **When we call a arrow function in a object and if there is a this keyword in the arrow function it will return
+global object , it wont return the object which by which it is being called
+
+const person ={
+  name :  "peter",
+  greet : ()=>{
+  console.log("Greetings")
+  console.log(this)  // window object
+}
+}
+
+person.greet() 
+
+<----------------- IIFE ----------------->
+IIFE functions are immediately invoked function Expression when we declare a var variable in the iife we cannot
+access the variable out side the iife it makes this kind of functions private , we can call spun the server 
+and connect to a database so the it is directly called when we defined this function
+Generally it dont have a name for the function , in a pair if paranthesis there will be a annonomous function
+after the 1st pair of paranthesis there will be second  pair of paranthesis
+
+this in a iffe refers to global variable
+
+Modular way in javascript
+
+const name = "Peter Parker" // in module.js
+
+import {name} from "./module.js"; // in main.js
+
+======== Regular Expressions ========
+/expression_name/i ---> if you want to select case insensitive expression_name you need to use this
+/expression_name/g----> it will select for the expression_name multiple times 
+/expression_name/s ---> it selects the white spaces
+/{(\w+)}/ ---> My name is {John} and I am from {New_York}
 
 
+Premitives vs non-premitives
+
+Premitive --->Numbers, Boolean, string, Undefined , null, Symbol
+Non-premitive ---> Objects , Array , functions,
+
+premitives are non changeable (Immutable) they will be refered with by call by value
+non-premitives are  changeable (mutable)     they will be refered with call by reference
+
+?? ---> nullesh operator ---> works for null and undefined values
+|| ---> falsey operator ---> works for falsey values it return default value when the value is falsey
+
+
+
+let value = null ?? 'hello' ---> // return hello because value is null so the default value is hello
+let value = 0 ?? 'hello' --> return 0 because 0 is not a null value or undefined
+let value = 0 || 'hello' --> return hello because 0 is falsey
 
 */
 

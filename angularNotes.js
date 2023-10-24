@@ -48,7 +48,7 @@ the created interceptor and need to keep multi : true it intercept multiple requ
     Observables are stream of data which will sent from a asynchronous method ,When a Observer subscribes to
 the data stream it we can use the data , We can create a new Observable and there will be a callback 
 to it and with the help of next() method the values will be sent to the observer / Subscriber to the observable 
-three mthods 1 next() , error() , complete() , and by using subscribe() we can subscribe to observables
+three methods 1 next() , error() , complete() , and by using subscribe() we can subscribe to observables
 The difference between the observable and Promise, Observables will emit stream of data it like in a 
 continuous manner but in promise it will send a data when it is resolved or rejected , At the time of
 creating the promise we use resolve and reject mehtods in the promise constructor calling the promise
@@ -124,7 +124,7 @@ we cannot create a angular project
 isClassApplied = true 
 whiteColor = white
 
-Ex : [ngClass]= "{ 'margin-top-4' : isClassApplied}" --> ngClass can add or remove the styles for any dom element dynamically
+Ex : [ngClass]= "{ 'margin-top-4' : isClassApplied }" --> ngClass can add or remove the styles for any dom element dynamically
 Ex : [ngStyle] = "{'color': whiteColor }" --> ngStyle can change the behaviour dynamically it can change the color when there is 
 a differenrt use loggined
 
@@ -135,5 +135,50 @@ constructor ngOnChanges, ngOnInit, ngDoCheck , ngAfterContentInit, ngAfterConten
 
 Angular modules always load eagerly but with the lazy loading concept only the modules will load when the route 
 is called 
+
+
+<----------------one-way-data buinding------------>
+
+data comming from component file to template file(Ui file) is called one way databinding
+
+string interpolation and property binding [] --> componnet file to template file
+Event binding () ---> template file to component file 
+
+
+<------------Renderer 2 -------------->
+
+Renderer2 is a class which allow us to do dom manipulation without accessing dom elements directly
+, Usually this Dom manipulation will be also done by ElementRef class in angular with use of nativeElement method
+on it when we use like this (Dom manipulation is not a good practice) it will bypass the sync between 
+component class and templete class and if we do dom manipulation this app will not work in serverside
+and also in desktop apps and mobile apps and it might provide access to XSS vulnerabilities
+But we can still manipulate Dom with Renderer 2 which will provide an abstraction layer between component
+code and dom element 
+
+<------- @Input Decorator / custom property binding and @Output decorator/ custom event binding---->
+input and output decorators are only used in child component when data is passing from child to parent 
+or parent to child , When we are passing from child to parent we need to emit data by event emitter 
+and need to bind the event emmiter variable with event binding and when we are passing data from 
+parent to child we need to use custom property binding 
+
+<------- Html Template Reference variable ------->
+Template reference varibale is we can refer a dom element with a reference which will be starting with 
+"#SampleTemplateReference" and we can pass that template reference with any event emiting 
+
+We can also put template reference to a component and we can do datatransfer from child to parent component
+and with sibling componnets, But the reference of the template will be only passed when there is any
+event bindling 
+
+<------------- @viewChild() -------------->
+
+viewChild is used to take the reference of a html element , It will directly pass the html template reference
+from the html class to ts class , for a variable we need to decorate with @viewChild('SampleTemplateReference')
+and first property will be the element reference , the type of the variable will be ElementRef
+With the help of viewChild we can pass value from child to parent and need to use custom property binding
+and @input decorator to again pass it from parent to child
+
+ViewChild('')
+The defination will be with the help of viewChild it will query the template reference from the html file
+and will give to ts file directly  
 
 */

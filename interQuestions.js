@@ -73,6 +73,20 @@ this keyword
     
 //     myObject.func();
 
+         ================= Introduction ==============
+
+
+         =========== ===========
+
+1. What is the second larest number in a given array?
+2. ['123','xyz','abcde','qwers','asdf'] ---> { 123 : 3, xyz :3, abcde :5, qwers : 5, asdf : 4}
+3. Create a custom pipe that trasforms the given content
+hello \n i am a interviewer \n i need to take a interview 
+
+hello
+i am a interviewer 
+i need to take a interview
+
 
 */
 
