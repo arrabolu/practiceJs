@@ -386,6 +386,12 @@ const obj = {
    let multiplyByTwo =  multiply(2)
     multiplyByTwo(3)
 
+    <-----or ---->
+
+  let  result = multiply(2)(3)
+
+    currying in js will use closure to return the remembered values and will be called again
+
 
     <--------------- this key word ---------------->
     this keyword is defined by where the this keyword is present and by which it is called , When this keyword is 
@@ -443,6 +449,38 @@ non-premitives are  changeable (mutable)     they will be refered with call by r
 let value = null ?? 'hello' ---> // return hello because value is null so the default value is hello
 let value = 0 ?? 'hello' --> return 0 because 0 is not a null value or undefined
 let value = 0 || 'hello' --> return hello because 0 is falsey
+
+
+<----------------------memoization ------------------>
+
+Memoization is a technique use to optimize the js code to execute it in less time , Its like storing the value
+in cache , If we pass a value in to a function then the result is stored in the cache and if we call the function
+with same input the total logic will not be executed it will check in cache and it will return from cache this 
+reduce the time 
+
+cache = {}
+
+function SumOfValues(n){
+     if(n in cache){ // search in cache and return
+          return cache[n]
+     }else{
+           //logic
+     let result = 0;
+     for(let i = 0 ; i < n ; i++){
+          result = i + result;
+     }
+     // stores in cache
+     cache[n] = result; // {'3' : 6}
+
+     return result;
+     }
+}
+
+SumOfValues(3)
+
+
+
+
 
 */
 

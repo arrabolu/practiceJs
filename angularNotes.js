@@ -177,8 +177,47 @@ and first property will be the element reference , the type of the variable will
 With the help of viewChild we can pass value from child to parent and need to use custom property binding
 and @input decorator to again pass it from parent to child
 
+Generally it will pass the selected element reference from the view template to class file
+
 ViewChild('')
 The defination will be with the help of viewChild it will query the template reference from the html file
 and will give to ts file directly  
+
+
+<---------ng-content---------->
+With the help of ng-content we can project a content from parent to child components,Actullay when we use
+selector of a component the html of the component will render at the place of the selector,But the content
+will not render in the component , if we want to render the content we need to use ng-content tag in
+the component where we need to render the content and for the multiple content need to render 
+we need to use select tag on the ng-content and need to give class name of the content, THIs is called the 
+projection of the content with the class names
+
+<-------------ng-template--------------->
+ng-template is a element in angular where we can add html elements in it and it will be rendered in the dom
+it is be rendered only when we create a reference to it and need to use the reference at a expression 
+level, ngTemplateOutlet is a stuctral directive that can be used to show the ng-template wraped html
+
+
+<---------------ng-container-------------------->
+ng-container is a special tag in angular when we use this selector we can write clean html templates 
+it will be possible to add structural directives to ng-container without adding new element to dom
+
+
+--------------contentChild------------
+contentchild is a decorator used in a child component it will take the reference of the projected content
+comming from the parent component , it will take only 1st element that matched the selector,
+
+projected content will be comming from parent to child component , ng-content 
+
+@contentChild('paragraph') paraEl : ElementRef
+
+--------------contentChildren------------
+contentchildren is a decorator used in a child component it will take the reference from the projected content
+comming from the parent component , it will take all matched references in the projected content,
+
+projected content will be comming from parent to child component , ng-content 
+
+@contentChildren('paragraph') paraEl : ElementRef
+
 
 */
