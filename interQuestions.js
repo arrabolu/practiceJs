@@ -7,7 +7,6 @@ Auth Guards
 
 Promises are eager and Observables are Lazy
 
-
 ================= NextLabs interview Questions ================
 
 canvas tag and svg element => svg and canvas elements are html graphics elements where we can draw 
@@ -86,6 +85,37 @@ hello \n i am a interviewer \n i need to take a interview
 hello
 i am a interviewer 
 i need to take a interview
+
+  ============ BMS ===========
+  Webworker in angular
+  generator in javascript
+  escape character in javascript
+  Challenges when developing rest-apis
+prime numbers in javascript
+fibonacci numbers in javascript
+
+====== gap interview =========
+Debugging techniques
+
+implicit global variable declaration
+y = 10;
+console.log(y);
+----------------
+console.log(a)
+var a = 10
+-------------
+y = 10
+console.log(y)
+var y;
+
+let arr = ['oranges', 'oranges', 'grapes', 'kiwi','oranges'];
+
+let result = {};
+
+arr.forEach(item => {
+  result[item] = (result[item] || 0) + 1;
+});
+
 
 
 */

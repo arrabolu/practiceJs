@@ -25,3 +25,53 @@ function subString() {
 }
 
 subString();
+
+
+
+
+
+function* generateIds(){
+
+  let id = 1;
+
+  while(true) {
+      yield id
+      id++;
+      if(id == 15){
+          break;
+      }
+  }
+
+}
+ 
+const generatorObject = generateIds();
+
+console.log(generatorObject)
+
+
+let worldCup = function (country,caption){
+  this.country = country;
+  this.caption = caption;
+ 
+}
+
+
+
+let india = new worldCup('india','rohit')
+let Newzealand = new worldCup('Newzealand','kane')
+let Australia = new worldCup('Australia','cummings')
+
+console.log(Australia)
+console.log(Newzealand)
+console.log(india)
+
+const myObject = {
+  city: "Madrid",
+  greet() {
+    console.log(`Greetings from ${this.city}`);
+  },
+};
+
+myObject.greet(); // Greetings from Madrid
+
+console.log(myObject)

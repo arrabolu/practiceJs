@@ -219,5 +219,14 @@ projected content will be comming from parent to child component , ng-content
 
 @contentChildren('paragraph') paraEl : ElementRef
 
+<-------------- Signals ------------------>
+
+Before signals ,Generally Angular uses change detection cycle when there is a event binded to a html tags like
+<button (click)="" ></button> Change detection cycle will be triggered when there is a event call 
+What change detection cycle do is it will rerender the angular tree (complete project ),Internally 
+Change detection cycle uses zone.js library and the change detection complete project will be rendered
+to just show the result of the event it is effecting the performance of the project and it takes high bundle size 
+Here comes the signals handy that it will change only where the html need to change This is the advantage 
+of signals
 
 */

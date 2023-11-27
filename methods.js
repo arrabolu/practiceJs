@@ -988,6 +988,51 @@ function arrayIntersection(array1,array2){
 console.log(arrayIntersection([1,2,3,99,23,11],[11,99,23,12,34]))
 
 
+function* generator(num) {
+
+    yield 0;
+    yield 1;
+    let num1 = 0;
+    let num2 = 1;
+
+    while(true){
+        result = num1 + num2;
+        yield result
+        num1 = num2;
+        num2 = result;
+    }
+
+}
+
+const generatorFn = generator(3)
+
+function fibonacciSerice(number){
+    for(let i = 0; i < number ; i++) {
+        console.log(generatorFn.next().value)
+    }
+}
+
+fibonacciSerice(10)
+
+let person = {
+     name : 'John Doe',
+     run : () =>{
+        console.log("Starting")
+    } 
+}
+
+let person1 = {
+    name : 'John parker',
+    place : 'India'
+}
+
+person.__proto__ = person1
+
+console.log(person.place)
+
+// console.log(h.__proto__);
+
+
 // function stringCompression(stringCom){
 //     stringCom.split
 // }

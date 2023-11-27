@@ -28,15 +28,17 @@ const variables ==> const variables are strict variables, we need to initialize 
 Hosting : Variables and function declarations are moved up the code in the javascript when we run a js file there will 
 be first memory allocation for varibales then after memory allocation the data is initialized to the variables,
 but hoising is not applicable for function expressions 
+JavaScript moves function declarations to the top of their scope during the compilation phase not function
+expressions
 
                     <----------------  Prototype  ---------------->
-     In javascript prototype is a feature with which we can inherit properties form one another , when we call any fuction
-or variable in a object it will first checks the its own scope then it will check its prototype scope and it will also 
+
+     In javascript objects there is a seperate property called prototype, prototype is a feature with 
+which we can inherit properties form one another , when we call any fuction or variable in a object it
+ will first checks the its own scope then it will check its prototype scope and it will also 
 check its prototype prototype scope and returns the value it is also known as prototype chain
 
-*/
 
-/*
        ============================= Scope in Js ======================
 There are 3 scopes in js 
 Global Scope
@@ -56,7 +58,7 @@ present in block scope
 undefined and not defined ===> when a variables declared with var then the js engine will allocate specific space 
 to it when we console that variable it will be printed as undefines it is also known as the console is in temporal dead zone
 not defined is when a varibales is not yet defined and still we are accessing then it will get refference error with 
-variable Name is not defined 
+variable Name is not defined , not defined when a varibale is not yes defined
 
 ====================== async and defer key words ===============
 
@@ -133,7 +135,7 @@ function a (){
 
              ========== Function Expression ====================
 function expression : A function is declared to a variable is called function expression 
-
+Hosting is not applicable for Function declaration 
 const a = function (){
       console.log("")
 }
@@ -311,7 +313,7 @@ Object.assign() is used to copy the object Object.assign(target, source)
 
     
   <--------------------Call--------------->
-  Call method can be userd to invoke a function by passing a reference of the varible or
+  Call method can be used to invoke a function by passing a reference of the varible or
  object which is pointed to this keyword 
 
  <---------------------Apply--------------->
@@ -399,7 +401,7 @@ const obj = {
     we are calling the function with a object then it will return the object , by which it is called
 
     **When we call a arrow function in a object and if there is a this keyword in the arrow function it will return
-global object , it wont return the object which by which it is being called
+global object , it wont return the object with  which it is being called
 
 const person ={
   name :  "peter",
@@ -420,16 +422,23 @@ after the 1st pair of paranthesis there will be second  pair of paranthesis
 
 this in a iffe refers to global variable
 
-Modular way in javascript
+<----------------Modular way vs commonjs in javascript ---------------->
 
 const name = "Peter Parker" // in module.js
 
 import {name} from "./module.js"; // in main.js
 
+commonjs uses require to import the functions or variables from one file into another
+
 ======== Regular Expressions ========
+escape character ---> \ the compiler will escapes the next character 
+ex : const name = "hello my name is "peter"" --->  "hello my name is \"peter\" "
 /expression_name/i ---> if you want to select case insensitive expression_name you need to use this
-/expression_name/g----> it will select for the expression_name multiple times 
+/expression_name/g ----> it will select for the expression_name multiple times 
 /expression_name/s ---> it selects the white spaces
+/e+/s ---> it will select 1 or more e's in the expression
+/e?/s ---> e will be optional here
+/.at/ ---> cat ----> cat will be exact match . will see a 
 /{(\w+)}/ ---> My name is {John} and I am from {New_York}
 
 
@@ -451,7 +460,7 @@ let value = 0 ?? 'hello' --> return 0 because 0 is not a null value or undefined
 let value = 0 || 'hello' --> return hello because 0 is falsey
 
 
-<----------------------memoization ------------------>
+<----------------------Memoization ------------------>
 
 Memoization is a technique use to optimize the js code to execute it in less time , Its like storing the value
 in cache , If we pass a value in to a function then the result is stored in the cache and if we call the function
@@ -478,7 +487,82 @@ function SumOfValues(n){
 
 SumOfValues(3)
 
+<----------- Generator Functions in js ---------------->
 
+Generator function is a different kind of method when we have a syntax of function* then we can say it is a 
+generator function and has yield syntax in the function object. When we call a generator function we get 
+generator object , With the help of enerator object we can call next method , The usecase of the generator 
+object is we can use it in ifinite loops where we can generate ids , we can run ifinite loop with out
+hanging the code 
+
+function* generateIds(){
+
+    let id = 1;
+
+    while(true) {
+        yield id
+        id++;
+        if(id == 15){
+            break;
+        }
+    }
+
+}
+   
+const generatorObject = generateIds();
+
+console.log(generatorObject)
+console.log(generatorObject.next())
+console.log(generatorObject.next())
+
+<---------- Web worker ------------------->
+When there is a high computating task need to be done in client we use webworker , In general we have only one 
+call stack and javascript and it is a single threaded synchronous language , When we do that heavy task in 
+on main thread  the ui will be freeze and it wont work , it will be a bad user experience , So for this 
+we need to implement webworker in our angular application that it will create another thread and the high
+computation task is done on other thread so the main thread wont we struck with one task 
+
+
+<------------Web Sockets -------------->
+Web Sockets are one of the machanism that is built above the TLS connection, Layer 4 in OSI Model, When connection
+between server and client when client sends a request to server there should be a TLS connection for every
+request here connection is state less means it when client sends the request the request can be handled
+by any server in the back-end but what Web Sockets do is it will create a connection bridge between server and client 
+which makes the responce from the server faster and for every request there wont be a TLS connection , but the 
+disadvantage is it is not a stateless it is stateful , only one server can handle the request, where the state is
+maintained on that server 
+
+<--------------Constructor Function is JS----------->
+Constructor Function will instantiate the object(creates a object) with the new keyword , by default it will
+return the object,
+With the help of the constructor function We can create a blueprint for a object, In general from java pov
+we will say class is the blueprint of the object but in js constructor function is the blueprint of the object
+it will look just like a function 
+we can create many objects with the help of the constructor function by just calling the constructor function
+with new keyword, where this keyword in the Constructor Function will refer the object which is calling the 
+Constructor Function, Constructor Functions will be seen as 1st letter in the function name is a capital letter
+
+function Greet(fName,lName,wish){
+  this.firstName = fName
+  this.lastName = lName
+  this.greetings = wish +' '+ fName + ' ' + lName
+}
+
+let greetings = new Greet('Peter','Parker','Good Morning')
+
+here this refers to greetings
+
+console.log(greetings)
+
+<------------- Array functions ---------------->
+
+numbers = [1,2,3,4]
+
+numbers.push(5) // numbers=  [1,2,3,4,5]
+numbers.pop() // numbers=  [1,2,3,4]
+
+numbers.unshift(5) // numbers=  [5,1,2,3,4]
+numbers.shift() // numbers=  [1,2,3,4]
 
 
 
