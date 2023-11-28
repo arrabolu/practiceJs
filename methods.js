@@ -1014,7 +1014,40 @@ function fibonacciSerice(number){
 
 fibonacciSerice(10)
 
-let person = {
+
+let z =[211,1,32,121,34,12] 
+
+let sortedNumbers = z.sort((a,b)=> a-b)
+
+console.log(sortedNumbers)
+
+function nthLargestNumber(n){
+  return sortedNumbers[sortedNumbers.length - n] 
+}
+
+console.log(nthLargestNumber(1))
+
+
+function isPrime(n){
+  
+    if(n <= 1){
+      return false
+    }
+    
+    for(i = 2 ; i <= n/2; i++){
+      if(n % i == 0){
+        return false
+      }
+    }
+    
+    return true
+    
+  }
+
+  console.log(isPrime(2))
+
+
+/* let person = {
      name : 'John Doe',
      run : () =>{
         console.log("Starting")
@@ -1028,7 +1061,7 @@ let person1 = {
 
 person.__proto__ = person1
 
-console.log(person.place)
+console.log(person.place) */
 
 // console.log(h.__proto__);
 
