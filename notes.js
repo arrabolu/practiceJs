@@ -564,6 +564,12 @@ numbers.pop() // numbers=  [1,2,3,4]
 numbers.unshift(5) // numbers=  [5,1,2,3,4]
 numbers.shift() // numbers=  [1,2,3,4]
 
+--------javascript is Statically typed or Dynamically tipes language ------
+
+Javascript is a dynamically typed language which means we will not gives datatypes to the variables while
+declaring like 
+let a = 10; // Dynamically typed
+
 
 
 */
