@@ -1,6 +1,21 @@
 /* 
              ======================  Java  ====================
-            
+
+Why Java is a platform-independent language 
+1.When we compile java file it will give a byte code(.class file)
+2.With the byte code we can interpret with JVM and then it will convert to machine redable code
+3. javac filename.java -------------> filename.class ----------> machile code
+                        compiles                       JVM
+
+             ---------------- JDK vs JRE vs JVM -------------------------
+All JDK JRE and JVM are platform dependent(For every platform there is separate sofwares)
+1.JDK is Java development Kit which consists of JRE and development tootls to write java code 
+2.JRE is Java Runtime Environment , It is the software which need to be present for running the java code
+End users need to have JRE to run the java code.
+3.JVM is Java Virtual Machine , with the JVM we can interpret the bytecode(.class file) to machine readable code
+it is responsible for running the java code
+
+
 Method Overloading : In Java class if we have 2 methods with same method name and  different number of 
 parameters or different parameters then it can be called as method Overloading 
 
@@ -129,19 +144,34 @@ pointing to the same object
 the value in the variables
 
 --------------------- final vs finally vs finalize -------------------
-Final ----> variable , method or class can give this key word is final 
-Finally --->Finally block is executed with the try and catch block , This finally block will be executed for sure
-Finalize ---> Finalize method is called when jvm called the garbage collector and it will clean the things up
+Final(keyword) ----> variable , method or class can give this key word as final which restricts the scope of the same
+variable ---> can not be assigned anothertime
+method ---> cannot be overriden after extension of the class
+class ---> cannot be extended 
+Finally(block) --->Finally block is executed with the try and catch block , This finally block will be executed for sure
+Finalize(method) ---> Finalize method is called when jvm called the garbage collector and it will clean the things up
 with the help of finalize 
 
------------------ Access Specifiers -------------
+class test {
+    public static void main(String[] args) {
+         public void doSomething(){
+            a obj = new a();
+            obj = null; // nullfying the object
+            System.gc(); // calling gc 
+            // when we call gc then gc will internally call finalize method 
+         }
+    }
+
+}
+
+----------------- Access Specifiers -----------------------
 
 Private ----> Members declared as private can be accessed with the class only
 default ----> Members declared as default it can be accessed with in the package only 
 protected ---> Members declared as protected can be accessed with in the package by child classes of outside package
 Public ----> Members declared as public it can be accessed from anywhere from any other class also
 
-----------  Constructors ----------------
+----------  Constructors ---------------------------------
 1.No arg constructor
 2.Parameterized constructor
 3.Default constructor
@@ -149,6 +179,61 @@ Constructors are used to intitialize the object ,When a object is created some v
 If there is no constructor created manually then compiler will create a new default constructor , if a constructor 
 is present then the default constructor wont be created , Main purpose of the constructor is to initialize
 the object, At the first line of the constructor there will a super() it will call the parent constructor 
+
+-------------- Singleton class in java -------------------------------- 
+
+The class which can create only one object is called as a Singleton class, 
+1.Where the constructor should be private so the object cannot be created outside of the class 
+2.getInstance method should be present in the class to create one object and getInstance method should be static
+so we can call the method without creating object
+
+------------- String vs StringBuffer vs StringBuilder --------------------------------
+
+1.String is a Immutable class but StringBuffer and StringBuilder are mutable,
+2.StringBuilder is not Synchronized means it will only one thread can execute the StringBuilder, it is more efficient
+3.StringBuffer is Synchronized means it will be executed with multiple threads at a time,less efficient
+4.String has String constant pool memory , When a string object is created it will store in String Constant pool
+But for StringBuffer and StringBuilder will create in Heap memory.
+5.We can go for string when string value is not going to change frequently,We can go to StringBuilder when we
+know that string object is going to change and thread safety will not there(Multiple threads cannot execute at a time),
+We can go to StringBuffer when we know that string object is going to change and thread safety will be there
+(Multiple threads can execute at a time).
+
+final and abstract is illegal combination for the class
+
+
+----------------  Collection vs Collections framework ----------------------------
+
+collection is a root interface for the collection framework and represents a group of objects as a single entity and
+collections is a utility class in java.util which can use this utility methods like(Searching , Sorting)
+for the collection class
+
+---------------- Array vs ArrayList ----------------------------
+Array is a primitive datatype in java and ArrayList is a collection class 
+1.Arrays are fixed, length cannot be changable but with arraylist class we can create resizable arraylist objects
+2.Arrays can store primitive datatypes and objects but in Arraylist we can store only objects
+3.Arrays has length method which gives the length of the array, ArrayList has a size method which gives output
+of the size of the arraylist(Occupied size )
+4.Array is in core java programming but ArrayList is in Collection framework
+5.Array is multi-dimensional but ArrayList is one dimensional
+
+-----------------   Array vs Linkedlist --------------------------------
+1.In Array memory allocation is stored in consecutive manner(Continuous) but in Linkedlist memory allocation is not 
+consecutive (Non-Continuous)
+Ex: memory location for one element in array is next to the another element in array, but in linkedlist
+there will be pointers attached to every element of linkedlist then the pointer will point to next location 
+2.Memory allocation is done at compile time in arrays but in Linkedlist memory allocation is done at runtime
+3.Memory allocation is done at stack memory in arrays but memory allocation is done in linkedlist is at heap memory
+4.Size in array is fixed but in linkedlist it is dynamic
+5.No Extra space is required in Array but extra space is required in Linkedlist where pointers need to point 
+to another linkedlist data
+6.We can access array with random like arr[2], in linkedlist is sequential access need to go through all elements
+of linkedlist
+7.Time complexity is O(1) (Big O) in array in arraylist time complexity is O(N), Need to pass through N elements to access
+elements in arraylist.
+8.Insertion and deletion operation is Expensive in array whereas in linkedlist deletion and insertion is easy
+
+
 
 
 */
