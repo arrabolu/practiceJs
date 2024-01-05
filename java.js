@@ -207,6 +207,7 @@ that varibale want to meet some security requirements then we can keep the trans
 be sent to another server rather a default value(0,null) will be sent to the server
 
 serialization is saving the state of the object , It is transfering the data to certain server or network
+is know as serialization or it  is converting the java object to a byte stream to save the state in a network
 
 -----------------  Constructors ---------------------------------
 1.No arg constructor
@@ -559,12 +560,15 @@ Map is the only interface which doesnt implements the collection interface becau
 has add(v) method with we can add values but not key and values like add(k, v)
 
 --------------Importace of the hashMap :--------------------
-1.HashMap uses hash function, When there is a put operation put(k,v) key will hashed and it will return a
-index there in thathtable it will store key and values.
+*When we create a map it will create a 16 bucket list Every bucket acts as a single linkedlist and there will 
+be node
+1.HashMap uses hash function, When there is a put operation put(k,v) key will hashed and with the 
+help of hashcode and length it will return a bucket index in table and the key value will be stored
+in the first node of the bucket.
 2.HashMap can get values with get method we will pass key in get(k) method and it will return provide index 
 of the table and it will return values 
-3.If when inserting elements with put method hashing will return same index then there will be a linkedList
-will be formed to that index Only if hasing returns same index.
+3.If when inserting elements with put method with hashcode and length of map may  return same index then there will 
+be a linkedList will be formed to that index 
 4.But when retrieving while using get method first it will get index value and it will uses equals method to
 check the key is same then it will return the value 
 
@@ -618,11 +622,13 @@ elements in arraylist.
 concurrentHashMap while the object is iterating it wont get any error but hashmap will get concurrentModification 
 Exception.
 2.Hashmap is fail-fast  but ConcurrentHashMap is fail-safe 
-3.Hashmap can add one null key and value but concurrentHashMap wont allow to store null values
+3.Hashmap can add one null key and value but ConcurrentHashMap in Java, neither keys nor values are allowed to be null
 4.Hashmap is faster but ConcurrentHashMap is slower
 5.Hashmap is non-thread safe but ConcurrentHashMap is thread safe
 6.For Hashmap the locking machanism will be at the object level and for ConcurrentHashMap it is at the
-segment level or bucket level
+segment level or bucket level.The lock will be there when we are writing on the ConcurrentHashMap but the 
+lock wont be there when we are reading on the ConcurrentHashMap,Lock will be specific only at one segment level
+not on the whole object level for ConcurrentHashMap
 
 *Event HashTable is Synchronized but when we compare the HashTable vs ConcurrentHashMap HashTable will have 
 locking machanisms for total object but for concurrentHashMap Locking machanisms will be there for every segment
@@ -908,6 +914,9 @@ public class B {
  We cannot override private and static methods in java
 
 ---------------Java 8 ------------------
+Operations like filter, map, flatMap, sorted, etc., are stateless. They do not modify the elements
+in the original stream but create a new stream with transformed or filtered elements.
+It has stateless characteristics. These are immutable.
 
 ------------------Streams Api --------------------
 Streams api can be applied to collection objects where the elements in the collection object will be 
@@ -918,8 +927,26 @@ List s = list1.stream().filter(i -> i>=12).collect(Collectors.toList());
 
 -------------Lambda Expresion ---------------------
 Java 8 has introduced lambda Expresions to write concise code which can write methods in a easy way
-
 filter(i -> i>=12)
+
+*In Java, lambda expressions can  be used to implement functional interfaces. 
+This restriction exists because functional interfaces, by definition, contain only a single abstract method, 
+making them suitable for lambda expression implementations.
+The whole idea behind lambda expressions is to provide a concise way to implement single-method interfaces.
+
+*Method references can be used at the place where we need to pass the method as a argument to a another method
+It is like common in functional programming it will enhance the code and can write a redable code
+
+There are 3 types of method references 
+1.Static method references : We can call the static methods with the method reference 
+Ex: Class_name::method_name
+2.Non-static method references :We can call the non-static methods with the method reference
+Ex: object_references::method_name
+3.Constructor Reference : We can create a object with the constructor reference
+Ex : String::new
+
+FInterface fi = (a,b) -> a * b;  Implementation of a functional interface abstract method
+
 --------------------Functional Interface--------------------
 Functional Interface should has only one abstract method and multiple default and static methods are called 
 Functional Interfaces
@@ -940,4 +967,20 @@ static void m1() {
 		System.out.println("default  interface method ");
 	}
 }
+
+-------------------Optional classes --------------------------------
+In Java while creating a java object or There will be some times nullPointerException will be occured but we 
+cannot know when it will be occured there the Optional classes will be handy 
+
+Optional classes has three methods
+1.Optional.of() --> should use when we know the object passing inside should not be null any way
+2.Optional.ofNullable()--> should use when we know the object passing inside may or may not be null 
+3.Optional.empty()
+
+-------------------Design patterns-------------
+Factory DP:
+The Factory Pattern is one of the most commonly used creational design patterns in Java. 
+It is used to create objects without exposing the instantiation logic to the client. 
+The Factory Pattern provides an interface for creating objects, allowing subclasses to decide which class to instantiate.
+ This promotes loose coupling and makes the code more flexible and extensible.
 */
