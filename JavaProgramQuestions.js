@@ -200,4 +200,19 @@
 		System.out.println(result);
 	}
 
+	* Grouping by certain values in map
+	List<Employee> employeeList = new ArrayList<>();
+		
+		Employee e1 =	new Employee("peter",101,1000);
+		Employee e2 =   new Employee("Gwen",102,1000);
+		Employee e3 =   new Employee("Tom",103,12000);
+		
+		employeeList.add(e1);
+		employeeList.add(e2);
+		employeeList.add(e3);
+		
+		Map<Integer,List<Employee>> map = employeeList.stream().collect(Collectors.groupingBy(Employee::getSalary));
+
+
+
 */

@@ -111,7 +111,12 @@ to custom classes which we create
 
 Abstraction : Hiding the main functionality and only showing the services what we provide is called Abstraction
 Example - Interface , bean class
+                                        (Or)
+Abstraction is a process of hiding the implementation details and showing only functionality to the user
+
 Interfaces only provide the methods declaration it wont provide method implemtation
+
+*Abstraction lets you focus on what the object does instead of how it does it.
 
 Encapsulation : Process of binding methods and variables into a single unit is known as Encapsulation 
 example : Bean class 
@@ -253,7 +258,7 @@ class Animal {
 *Primitive varibles are immutable in java
 
 final class ImmutableClass {
-		
+	
 	private final int number;
 	private final String str;
 	private final List immutableList;
@@ -918,6 +923,52 @@ Operations like filter, map, flatMap, sorted, etc., are stateless. They do not m
 in the original stream but create a new stream with transformed or filtered elements.
 It has stateless characteristics. These are immutable.
 
+---------------- Predicate -----------------------
+Predicate is a predefined functional interface that has one abstract class which is test() return boolean
+it can be implemented with lambda expression since its a functional interface , we can pass three types
+of arguments like String, Integer,CustomClass.
+The importanace of the Predicate is it gives code redability and reusability we can call the test method 
+from any class in the package.
+It is used for conditional checks.
+
+Predicate is used in the filter method of java 8
+
+Predicate<String>
+Predicate<Integer>
+Predicate<Employee>
+
+Ex :  Predicate<String> stringLengthCheck = s -> s.length() >= 3;
+      Predicate<String> StringlengthIsFive = s -> s == "Hello";
+      stringLengthCheck.test("Hello")
+
+Predicate Joining :
+We can join two Predicates with and , or and negate methods 
+
+Ex:   stringLengthCheck.and(StringlengthIsFive).test("Hello")
+      stringLengthCheck.or(StringlengthIsFive).test("Hello")
+      stringLengthCheck.negate().test("Hello")
+
+---------------  function  --------------------------------
+function is a predefined functional interface has one abstract method called 
+R apply()
+
+Functions are introduced in java 8 to increase the optimization , Redability and Reusability of the code 
+function is used in map method it will be represented like function<T,R> need to pass two arguments
+which are Type argument and Return argument We can pass any kind of arguments to this function
+
+Ex : Function<Integer,Integer> multiplywith2 = num -> num*2;
+		
+	Function<Integer,Integer> multiplywith3 = num -> num*3;
+
+System.out.println("Result of double the numbers "+multiplywith2.apply(10));
+
+Functional Chaining : 
+
+System.out.println("Results when multiplywith2 and multiplywith3 the number "+multiplywith2.andThen(multiplywith3).apply(10));
+
+System.out.println("Results when Reverse the operations "+multiplywith2.compose(multiplywith3).apply(10));
+
+
 ------------------Streams Api --------------------
 Streams api can be applied to collection objects where the elements in the collection object will be 
 easily filtered or mapped by using stream method which will convert the collection objects to stream 
@@ -956,6 +1007,9 @@ but in java8 we can write methods which have implementation with static or defau
 There is no mandatory rule that these implemented methods should override in child class it is optional
 but we cannot override the static access specifier implemented method in child class
 
+Main reason why the java8 has come up with default methods in functional interface is because if in case 
+some methods in interface should be same for all implementation then with default methods we satisy to not 
+to override the default methods in child classes
 
 public interface sampleInterface {
 
