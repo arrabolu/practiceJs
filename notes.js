@@ -25,7 +25,11 @@ const variables ==> const variables are strict variables, we need to initialize 
 
                      <--------------   Hosting  ---------------->
 
-Hosting : Variables and function declarations are moved up the code in the javascript when we run a js file there will 
+Hosting :
+Hoisting is a mechanism in JavaScript where variable and function declarations are moved to the top of 
+their scope before code execution
+                                    or
+Variables and function declarations are moved up the code in the javascript when we run a js file there will 
 be first memory allocation for varibales then after memory allocation the data is initialized to the variables,
 but hoising is not applicable for function expressions 
 JavaScript moves function declarations to the top of their scope during the compilation phase not function
@@ -37,8 +41,52 @@ expressions
 which we can inherit properties form one another , when we call any fuction or variable in a object it
  will first checks the its own scope then it will check its prototype scope and it will also 
 check its prototype prototype scope and returns the value it is also known as prototype chain
+ --- refer to saved insta post
+Ex 1:
+let personName = {
+    name : 'John',
+}
+
+let personRollNo = {
+    rollno : 101
+}
+
+let personAddress ={
+    city : "Hyderabad"
+}
 
 
+personName.__proto__ = personRollNo
+personRollNo.__proto__ = personAddress
+
+console.log(personName.rollno)
+
+console.log(personName)
+console.log(personName.city)
+
+Example 2:
+let x = {
+    name : "vinay",
+    city : "Siddipet",
+    id : 3626
+}
+
+let y = {
+    name : "Peter",
+
+}
+
+y.__proto__ = x
+
+console.log(y.__proto__)
+console.log(y.__proto__.__proto__ == Object.prototype)
+
+function fun(){
+
+}
+console.log(fun.__proto__.__proto__ == Object.prototype)
+
+Hence in JavaScript every thing is a Object -- Akshay Saini youtuber
        ============================= Scope in Js ======================
 There are 3 scopes in js 
 Global Scope
@@ -56,7 +104,7 @@ Block Scope ==> when a block is declared and when there are varibales in it like
 present in block scope
 
 undefined and not defined ===> when a variables declared with var then the js engine will allocate specific space 
-to it when we console that variable it will be printed as undefines it is also known as the console is in temporal dead zone
+to it when we console that variable it will be printed as undefines
 not defined is when a varibales is not yet defined and still we are accessing then it will get refference error with 
 variable Name is not defined , not defined when a varibale is not yes defined
 
@@ -150,10 +198,10 @@ b();
 a(); // will get compile type error
 
 const a = function (){
-      console.log("")
+      console.log("Hello world!");
 }
 function b (){
-      cosole.log('')
+      cosole.log('Hello')
 }
 
       ================= Difference between Parameters and Arguments ==================
@@ -211,7 +259,7 @@ Heap stack , GC(Garbage collector) ,Interpreter and compiler
 
 Js code goes into js engine for 
  *Parsing ----> Compiling -----> Execution 
- *parding code can transform to AST 
+ *parsing code can transform to AST 
  compiling is converting js code to bite code
 ANy programming language can be called as compiletime programming language or Interpreter type language
 Interpreter type ---> It checks the code line by line it doesnt know the next what will be the next line
@@ -250,6 +298,23 @@ and deep copy can be done by cunverting the object to string with JSON.stringify
 parse it with JSON.parse()
 
 Object.assign() is used to copy the object Object.assign(target, source)
+
+let obj = {
+  name : "peter"
+  address : {
+     city : "London"
+  }
+}
+
+// let user = Object.assign({},obj) ---> this is shallow copy
+// let user = { ...obj } ---> this is shallow copy ,But shallow copying is applicable for only one level 
+// let user = JSON.parse(JSON.stringify(obj)) --> this is Deep copy
+
+user.name = "Parker"
+user.address.city = "Pakistan"
+
+console.log(obj)
+console.log(user)
 
 */
 
@@ -298,7 +363,6 @@ Object.assign() is used to copy the object Object.assign(target, source)
     and gives the output, Symultaneously parsing and compilation will be performed
 
     we can see the output of the code as 
-
     console.log("Hello") // it will gives the output as hello and then gives the error 
     console.log(Hello)// hello is not defined , we can conclude it as it will interpretes by line by line
 
@@ -570,7 +634,15 @@ Javascript is a dynamically typed language which means we will not gives datatyp
 declaring like 
 let a = 10; // Dynamically typed
 
+-------------- Docker  ------------------------
+Docker helps runnning our projects isolatedly in any operating system 
+we can run maintain various versions dependency in different containers with different docker image files
+and can run then concurently with out any hassle 
 
+*Ensures that the application runs consistently across different environments.
+*Containers acts like virtual machines which shares the OS Kernel for every container
+OS Kernel : Acts as a mediator for the softwares and Hardwares in our machines(Computers)
+*Each container uses some part of Os, hardware ,Cpu ,Netwoking acts like vms
 
 */
 

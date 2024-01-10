@@ -701,50 +701,71 @@ connect to data base and do crud operations
                             2.@ComponentScan
                             3.@SpringBootConfiguration(@Configuration)
 
-@EnableAutoConfiguration ---> Enables the dependencies to download jar files and configure it when running application
+@EnableAutoConfiguration ---> It will do autoconfiguration, It automatically configures the Spring application based on its 
+dependencies and the classes available in the classpath
 @ComponentScan  ----> By this annotation it will execute the multiple annotations like @Entity @Repository @Services
 to the specified package (Root package).
-@SpringBootConfiguration(@configuration) ---> Specifies as one of the classes and execute when the 
-application is running like Enabiling security and swagger for the application
+@SpringBootConfiguration(@configuration) ---> @SpringBootConfiguration specifies that the annotated class
+ is a configuration class for a Spring Boot application. It is equivalent to using both @Configuration and @Component.
+
+*ClassPath in springboot has all dependencies and inbuilt classes in your application When you run a Java application, 
+the JVM searches for the required classes and resources in the directories and JAR files specified in the classpath.
+
+*Maven or Gradle, which retrieve dependencies based on your project's build configuration. 
+The auto-configuration mechanism then configures your application based on those dependencies.
+
+*ModularPath is introduced in java8 which stores the files in modular way 
 
 ----------------- Auto Configuration in spring-boot --------------------------------
-When we run the spring-boot application there will be some classes which will run automatically like aopconfiguration
-(Aspect-Oriented Programming : To keep the code like loozly coupled)and some of the class will be run depending on the 
-dependencies which are added like if we add jpa and jdbc dependencies there will be some condition like adding some
-properties in application.properties file
+Auto Configuration in spring-boot helps to reduce the boiler plate code When compared to Spring ,Spring-boot has
+less boilerplate code
+For example, if Spring Boot finds the Mysql database library on the classpath, it automatically configures a data source 
+and other necessary components for working with Mysql
 
-And we can also exclude some of the classes in application.properties file with excludes command
-
+It will scan Classpath 
+Spring Boot scans the classpath for specific libraries and frameworks commonly used in Spring applications.
 
 --------------  How run() method internally work --------------------------------
-Internally when run() method calls in spring-boot application it will search and load all environment variables files
-1.loads application.properties files
-2.create a context for the application
-3.loads the created beans in the created contex
+Internally when run() method calls in spring-boot application 
+1.It will search and load all environment variables files means loads application.properties or .yaml files
+2.Application Context Initialization : creates a context for the application
+3.Bean Initialization: Spring Boot initializes beans and components and loads the created beans in the created contex
 4.And kick starts the embedded server (Tomcat server)
 
 ----------------- Command line runner --------------------------------
 It is a interface which has run method that we can implement to our main class so we can implement the run
 method and we can do pre-processing things like connection to database can be done in this run method
 
-Stereotype Annotation: 
+Run Method in Main Class will execute primarly then the command line run method will execute 
+
+Stereotype Annotation: It is used to define the role and purpose of a bean class
 Specifically Spring-boot has some stereotype annotations :
 @Component : This is the parent interface for all stereotype annotations 
-1.@RestController --> Has web based logic like to right custome success class and error classes
+1.@RestController --> Has web based logic like to right custom success class and error classes
 2.@Service ---> Has business based logic 
 3.@Repository ---> Interact with database and write queries 
 4.@Entity ---> Properties that need to be there in one db sechema and its configuration
 
-Bean : Bean is a kind of object which is manages by applicationcontext , Applicationcontext will be created 
-when starting the sprin-boot application
+Bean : Bean is a kind of object which will be managed by applicationcontext , Applicationcontext will be created 
+when starting the spring-boot application
 
-We can create beans by giving annotations to classes @Component , @RestController etc.. and also we can 
-create a class for that we can annotate it as @Configuration and we can create a method so that method wil
-returns the object and we need to annotate it with @bean annotation
- @Bean
-    public MyBean myBean() {
-        return new MyBean();
+We can create beans by giving annotations to classes @Component , @RestController etc.. 
+If we are not willing to put the annotation then we can create a @Configuration class where we are telling to spring
+that it is the extra configuration for the application and we can get object from the @Bean annotation
+It tells that spring will automatically creates the objects 
+
+Example:
+
+@Configuration
+Class AppConfig{
+
+    @Bean
+    public Sample myBean() {
+        return new sampleSerive();
     }
+
+}
+
 
 
 Dependency Injection : In Spring boot we have a annotation called @Autowired which will create a object for 
@@ -752,23 +773,29 @@ the class instantly,This is the concept of spring-boot which makes it loozely co
 Without using @Autowired we can only create a object with the help of new operator which is tighlty coupled
 When we change the name of the class then it will become harder to correct in the project.
 
-We can also create dependency injection with other 2 types like
-constructorDependency  Injection : Need to set the object for a property
-1.Need to select this Dependency injection when  there should be mandatorly need of that class object
+Dependency injection is a kind of Design pattren which can create objects in a loosly coupled manner
+When we use the Dependency Injection the object creation the deletion will be take care by spring-boot
+it is the back-bone of the spring-boot
+
+We can also create dependency injection with other 3 types like
+1.Field level Dependency Injection 
+2.Constructor level Dependency Injection
+3.Setter level Dependency Injection
+
+constructorDependency Injection : Need to set the object for a property
+1.Need to select this Dependency injection when  there should be mandatorly need of the object at the runime
 2.When we assign the di to a variable then it is immutable 
-3.@Autowired is not required for this DI
-4.Dependency will inject in constructor.
-5.This is a common and often preferred method because it ensures that the class has all its required
+3.Dependency will inject in constructor.
+4.This is a common and often preferred method because it ensures that the class has all its required
 dependencies at the time of instantiation
-6.Circular dependency cannot be solved
+5.Circular dependency cannot be solved
 
 SetterDependency Injection : Need to set the object for a property
-1.Need to select this Dependency injection when  there should be not mandatory requirement of DI object
+1.Need to select this Dependency injection when  there is no mandatory requirement of DI object
 2.When we assign the di to a variable then it is mutable,SDI allows for more flexibility, as dependencies
 can be changed or updated after the object has been instantiated. 
-3.@Autowired is  required for this DI
-4.Dependency will inject in setter method
-5.Circular dependency can be solved with @Lazy
+3.Dependency will inject in setter method
+4.Circular dependency can be solved with @Lazy
 
 @Postconstruct : When we put this annotation to a method that method will run when starting the application
 it will call when the SpringApplication.run is called after this method executing then the run method from
@@ -781,6 +808,7 @@ method
 
 Bean Dependency Ambiguity : we get bean dependency ambiguity when we use dependency injection to inject
 a interface where that interface is implemented to two classes like 
+
 demoserviceI.interface
 demoServicesImpl1.class implements demoserviceI
 demoServicesImpl2.class implements demoserviceI

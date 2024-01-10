@@ -133,6 +133,14 @@ Building blocks of angular --> Services , Modules , components , templates, meta
 Life cycle hooks of Angular (8) --> 
 constructor ngOnChanges, ngOnInit, ngDoCheck , ngAfterContentInit, ngAfterContentChecked , ngAfterViewInit, ngAfterViewChecked, ngOnDestroy
 
+ngOnChanges: Called whenever an input property of the component changes.
+ngOnInit:Called once, after the component is initialized.
+ngDoCheck:Called during every change detection run, allowing you to implement your own custom change detection.
+ngAfterContentInit:Called after the content (projected content) has been initialized.
+ngAfterContentChecked:Called after every check of the content (projected content).
+ngAfterViewInit:Called after the component's view (and child views) has been initialized.
+ngOnDestroy:Called just before the component is destroyed and removed from the DOM.
+
 Angular modules always load eagerly but with the lazy loading concept only the modules will load when the route 
 is called 
 
@@ -228,5 +236,23 @@ Change detection cycle uses zone.js library and the change detection complete pr
 to just show the result of the event it is effecting the performance of the project and it takes high bundle size 
 Here comes the signals handy that it will change only where the html need to change This is the advantage 
 of signals
+
+-------- Route Guards -----------
+1.CanActivate Route Guard 
+2.CanActivateChild Route Guard
+3.Resolve Route Guard
+4.CanDeactivate Route Guard
+
+Class components and Funcitonal components in reactjs
+
+Class components:
+1.It has a class and a component is extends to the class acts like a old way to do things
+2.need to have a render method and have the jsx js + html and render method has return statement
+3.it has a state to render in the component
+
+Functional components:
+1.Functional components are defined in a variable it directly has a return type generally we use functional
+components more 
+2. we can use hooks like useState hook
 
 */
