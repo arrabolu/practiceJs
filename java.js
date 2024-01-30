@@ -51,7 +51,7 @@ class Child extends Parent {
     }
 }
 
-----------Constructor Overloading -------------
+----------  Constructor Overloading   -------------
 
 class Hospital {
 int variable1, variable2;
@@ -289,7 +289,7 @@ final class ImmutableClass {
 	
 }
 
-------------- String vs StringBuffer vs StringBuilder --------------------------------
+------------- String vs StringBuilder vs StringBuffer   --------------------------------
 
 1.String is a Immutable class but StringBuffer and StringBuilder are mutable,
 2.StringBuilder is not Synchronized means it will only one thread can execute the StringBuilder, it is more efficient
@@ -462,19 +462,6 @@ List : (java.util.List)
 3.Contains ordered elements.
 4.Elements can easily inserted with respect to the position.
 
-Set : (java.util.Set)
-1.It will not allow duplicates values.
-2.Set don't have ordered elements, So searching and inserting is not done by index based.
-
-Queue : 
-1.Queue is a FIFO 
-2.Elements added at one end and will remove at one end 
-
-Map : (java.util.Map)
-1.Map is a key-value pair object.
-2.Values in key-values paires can have duplicates, But keys cannot be duplicated.
-3.Map does not implements collection interface.
-
 ArrayList: (java.util.ArrayList) implements list interface.
 1.List is Dynamic we can add elements without bothering about size of ArrayList
 2.Arraylist we can store only objects
@@ -502,6 +489,10 @@ Stack:
 1.Stack is LIFO.
 2.Elements are added and removed from only one end.
 
+Set : (java.util.Set)
+1.It will not allow duplicates values.
+2.Set don't have ordered elements, So searching and inserting is not done by index based.
+
 HashSet:
 1.HashSet contains only unique elements
 2.it implements hashtable
@@ -519,6 +510,10 @@ TreeSet:
 1.Uses a tree for storage.(Self balancing binary search like red-black Tree).
 2.it will sort elements in ascending order.
 
+Queue : 
+1.Queue is a FIFO 
+2.Elements added at one end and will remove at one end 
+
 Priority Queue:
 1.Significant feature in priority queue is elements in this queue will have priority number and will serve
 according to the priority number 
@@ -531,6 +526,11 @@ DeQue:
 ArrayDeque:
 1.No restriction of elements addition
 2.Way to apply resizable array in addition to implementations of deque methods
+
+Map : (java.util.Map)
+1.Map is a key-value pair object.
+2.Values in key-values paires can have duplicates, But keys cannot be duplicated.
+3.Map does not implements collection interface.
 
 HashMap:
 1.It is non-Synchronous in nature.
@@ -707,6 +707,9 @@ dependencies and the classes available in the classpath
 to the specified package (Root package).
 @SpringBootConfiguration(@configuration) ---> @SpringBootConfiguration specifies that the annotated class
  is a configuration class for a Spring Boot application. It is equivalent to using both @Configuration and @Component.
+@configuration annotation will declare as one or more beans in the project
+
+*We  can also exclude any class configuration from our project with @EnableAutoConfiguration(exclude ={com.tecnics.dvr.userprofile})
 
 *ClassPath in springboot has all dependencies and inbuilt classes in your application When you run a Java application, 
 the JVM searches for the required classes and resources in the directories and JAR files specified in the classpath.
@@ -815,6 +818,32 @@ demoServicesImpl2.class implements demoserviceI
 Here we get bean dependency ambiguity , It can be resolved with @Qulifier("demoServicesImpl1") annotation 
 and @Resource(name="demoServicesImpl1") 
 
+=================Lambook Dependency ===================
+
+What is the use of Lombok maven dependency?
+Lombok reduces boilerplate code, making your code cleaner and easier to maintain
+
+Ex : @NoArgsConstructor and @AllArgsConstructor and @Data
+The @NoArgsConstructor and @AllArgsConstructor are two Lombok annotations that can be used to generate
+ constructors for a class.
+
+*The @NoArgsConstructor annotation generates a default constructor with no parameters. 
+This is useful when you want to be able to create instances of your class without having to provide any arguments.
+
+*The @AllArgsConstructor annotation generates a constructor with all parameters in the sequence, they are present in class. 
+This is useful when you want to be able to create instances of your class with all of the required parameters.
+
+@Data is a Lombok annotation that generates boilerplate code for you, ie. getters, setters, equals(), hashCode(), and toString() methods
+
+==============  Transactional annotation  ==============
+Transactional annotation is used when there is a payment functionality is there in our application
+like if we are passing paymnet info and other passanger info when if case there is an payment error 
+like insufficient funds then the paymnet details dont be entered into database but the passanger details
+will be persisted in to database but with transactional annotations dataconsistency problem will be solved
+
+============  Dispatcher servlet  ======================
+DispatcherServlet is responsible for handling and dispatching incoming HTTP requests to the appropriate controllers.
+
 -----------------  Bean scope -------------
 Bean Scope is the details of the when the bean is created and destroyed and lifecycle of the bean 
 We can scope for the bean with @Scope annotation
@@ -911,6 +940,43 @@ this dependency
 
 *With the help of MultiPartFile data is used to upload the file to server
 
+--------------------------- Exceptional Handling in Spring-boot --------------------------------
+We can use try/catch block in controllers generally and we can define custom error or custom success handlers
+by ResponseEntity class inbuilt class 
+
+  (or)
+
+  We can create a custom error handler packager and we need to define custom exceptions with throw key word
+and we need to create one more class for handling exceptions in project and use @RestControllerAdvice annotation 
+at the class level and @ExceptionHandler(custom_excetion.class) at the Method level there we need to give the 
+custom error message to the user this tells that when ever spring-boot encounters this mentioned custom_excetion
+this method will be executed and we can define custom message in this method
+
+----------- How can we Stanitize the data which is comming from input ---------------
+We can Sanitize the input data comming from the input by some annotations in the Dto class like
+Initially we need to have dependency of spring-boot-starter-validation and all the below annotations are
+imported form jakarth package
+
+@NotNull("Value should be non null")
+@NotEmpty("Value should be not Empty")
+@Pattern
+@Email
+@NotBlank
+@Max("Value should be more than 100")
+@Min("Value should be less than 500")
+@Future
+@AssertFlase
+
+When any input data is voilating about we will be getting input on console so we can also show the error message
+to the user by  @ExceptionHandler and @RestControllerAdvice
+
+
+----------------- Hibernate and JPA --------------------------------
+
+Hibernate is a ORM(Object Relational Mapping) Where it connects with the database and Objects in the Java Program
+It will map the objects in java with the database by help of JPA , JPA is like interface of what to map the 
+objects to database but Hibernate is the implementation of the Jpa Annotations
+
 ------------------- JAVA ----------------------
 *When we have a return type of one object for a method then in overriding of method we can alse keep the child 
 class return type 
@@ -950,6 +1016,10 @@ public class B {
 Operations like filter, map, flatMap, sorted, etc., are stateless. They do not modify the elements
 in the original stream but create a new stream with transformed or filtered elements.
 It has stateless characteristics. These are immutable.
+
+Short-circuiting Operator:
+anyMatch - Stops processing as soon as the first matching element is found.  If a match is found early in the stream 
+allMatch - Stops processing and returns false as soon as an element is found that does not match the condition
 
 ---------------- Predicate -----------------------
 Predicate is a predefined functional interface that has one abstract class which is test() return boolean
@@ -1003,6 +1073,14 @@ easily filtered or mapped by using stream method which will convert the collecti
 and collect(Collectors.toList()) will convert the stream to list object
 configuring can be done by filter or map method 
 List s = list1.stream().filter(i -> i>=12).collect(Collectors.toList());
+
+Stream.of(1, 2, 3, 4, 5)          // Stream source
+    .filter(x -> x % 2 == 0)      // Intermediate operation
+    .collect(Collectors.toList()) // Terminal operation
+
+
+Intermediate operation will transform a stream into another stream, such as map(MapperFn) 
+or filter(Predicate) Terminal operation will produce a result or side-effect, such as count() or forEach(Consumer)
 
 -------------Lambda Expresion ---------------------
 Java 8 has introduced lambda Expresions to write concise code which can write methods in a easy way
@@ -1065,4 +1143,9 @@ The Factory Pattern is one of the most commonly used creational design patterns 
 It is used to create objects without exposing the instantiation logic to the client. 
 The Factory Pattern provides an interface for creating objects, allowing subclasses to decide which class to instantiate.
  This promotes loose coupling and makes the code more flexible and extensible.
+
+----------------Entity Manager Factory----------------
+
+An entity manager is the interface through which Java applications interact with the JPA persistence context. 
+It is responsible for managing the lifecycle of entities 
 */
