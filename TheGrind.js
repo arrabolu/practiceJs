@@ -62,7 +62,7 @@ console.log(Number.prototype)
 // Number.prototype = 4
 
 
-let x = {
+var x = {
     name : "vinay",
     city : "Siddipet",
     id : 3626
@@ -78,6 +78,49 @@ y.__proto__ = x
 console.log(y.__proto__)
 console.log(y.__proto__.__proto__ == Object.prototype)
 
+let multiplyer = 1
+
+let promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("success")
+        reject("error")
+    }, 2000);
+})
+
+promise1.then((x) => {
+    console.log(x)
+})
+
+// setInterval(() => {
+//     let number = 2
+//     let result = number * multiplyer;
+//     console.log(result)
+//     multiplyer++
+// }, 100);
+
+var x = {
+    name : "vinay",
+    city : "Siddipet",
+    id : 3626
+}
+
+let ab = [1,2,3,4]
+
+for (const key in ab) {
+    // if (Object.hasOwnProperty.call(object, key)) {
+    //     const element = object[key];
+        
+    // }
+    console.log(key);
+    // console.log(x);
+}
+
+const arrayg = [1,2,3,4,5]
+
+console.log(arrayg.reverse(),"Resultantarray")
+
+// 2 *1 = 2
+// 2 *2 = 4
 
 // function person(name, age) {
 //     this.name = name;
@@ -90,3 +133,14 @@ console.log(y.__proto__.__proto__ == Object.prototype)
 // person.__proto__ = { address : "LA" }
 
 // console.log(details)
+
+let x1 = 1;
+
+setInterval((num)=>{
+
+    console.log(2 * x1 );
+
+    x1++;
+
+
+},1000)

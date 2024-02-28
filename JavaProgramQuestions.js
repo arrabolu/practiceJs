@@ -93,6 +93,7 @@
 		System.out.println(secondSmallNum);
 		
 	}
+=============== Reverse a array or string in java ===============================================
 
 	public static void reverseArray(int[] array) { // {1,2,3,4,5,6}
 		
@@ -106,6 +107,25 @@
 		
 		
 	}
+
+	String str = "Hello";
+		
+		String[] orginalString = str.split("");
+		
+		System.out.println(Arrays.toString(orginalString));
+		
+		IntStream.range(0, orginalString.length/2).forEach(index -> {
+			String temp = orginalString[index];
+			orginalString[index] = orginalString[orginalString.length - index -1];
+			orginalString[orginalString.length - index -1] = temp;
+			
+		});
+
+		String ResultantString =  String.join("", orginalString);
+		
+		System.out.println(Arrays.toString(orginalString));
+
+
 
 	public static void lengthOfLongestString(String[] stringArray) {
 		int resultNum =	Arrays.stream(stringArray).mapToInt(str -> str.length()).max().orElse(0);

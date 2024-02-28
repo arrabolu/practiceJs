@@ -108,7 +108,7 @@ y = 10
 console.log(y)
 var y;
 
-let arr = ['oranges', 'oranges', 'grapes', 'kiwi','oranges'];
+let arr = ['oranges', 'oranges', 'grapes', 'kiwi','oranges']; // {oranges : 3 ,kiwi : 1 , grapes : 1 }
 
 let result = {};
 
@@ -235,6 +235,119 @@ result = result + j;
 System.out.println(result);
 
 }
+
+public class Main {
+    public static void main(String[] args) {
+      System.out.println("Hello, World!");
+      boolean checkForPrime = false;
+      for(int i = 0 ; i<=100; i++){
+        checkForPrime =  isprime(i);
+        if(checkForPrime){
+          System.out.println(i);
+        }
+      }
+  }
+  
+  public static boolean isprime( int num){
+    
+    if(num < 2){
+      return false;
+    }
+    
+    for(int i = 2 ; i<=num/2 ; i++){
+        if(num % i == 0 ){
+          return false;
+        }
+    }
+    
+    return true;
+  }
+}
+
+============ Empower Interview =====================
+*What is the Event Loop
+*Give examples where the event loop works
+*How can you write a 2 multiplication table with setIntervel
+*What is the difference between for loop and for-in loop
+forloop ---> Traditional for loop in (Initialization , condtion and increament or decrement )
+for-in loop ---> used for arrays and objects 
+ex:
+let ab = [1,2,3,4]
+for (const key in ab) {
+  console.log(key); // 0,1,2,3, key is index
+}
+var x = {
+    name : "vinay",
+    city : "Siddipet",
+    id : 3626
+}
+for (const key in ab) {
+  console.log(key); // name, city, id  key is key in object
+}
+*Difference between SetTimeout and setInterval and callback
+*What is the difference between Ajax and Promises and Observables
+*What is the difference between Async and promises
+*Reverse a string in javascript and java
+*[1221, 2323,4567,1221, 2323] find What are the repeteting elements in above array in java and javascript
+*How can we give the count for the repeteting elements in java and javascript
+*What annotation to give at the time of Schedulers project in spring-boot
+*Can we keep multiple application.properties files in project
+*How can we connect database to owr spring-boot project
+*Dependency to work with web applications in springboot
+*How to connect to two databases in one spring-boot project
+*Where we need to configure the database connectivty in project
+*can we insert a 1 crore data to a my sql database at one go
+
+*Set<Integer> repeteatingElms = new HashSet();
+		Set<Integer> uniquElements = new HashSet();
+		
+		for(int num :array) {
+			
+			if(!uniquElements.add(num)){
+				repeteatingElms.add(num);
+			}
+		}
+		System.out.println(uniquElements);
+		System.out.println(repeteatingElms);
+
+function findDuplicates(array){
+    return duplicatNumbs = array.filter((currentNum,currentIndex)=> array.indexOf(currentNum) !== currentIndex)
+}
+
+console.log(findDuplicates(array));
+
+
+==================Need to check on this once =================
+*how the security will be added to restfull web services in spring-boot.
+*how the schulduler runs for every time for the application.
+*Sinario based questions in springboot
+*Sonarq in java back-end code quality
+*Agile methodology 
+*Testing framework for front-end karma and jasmine
+
+
+================Ey Interview Questions ================
+*General ANgular questions
+* 2 coding questions
+1. array = [1,2,3,4,5,6]  trasform to [1,3,5,2,4,6]
+2. You have certain currency values (i.e 1 rupee, 2 rs, 10 rs, 100 rs notes). 
+
+You are asked to give N amount in terms of the given currency values.
+
+Return the minimal count of notes (or the currency values) that you'll be using to produce the given amount
+
+Think of minimizing the count of the notes that you'll be giving me to produce amount
+
+================= Ey 2nd Round(F2F) =======================
+*General Angular questions
+*Implementing Todo list in Vs code (Implemented in Stackblitz saved to my account)
+*Manageral Round 
+**How your typical day does 
+*What are your hobbies
+*Why you are changing your company
+*If Ey Offers you less salary compared to other will you join
+*
+
 
 */
 

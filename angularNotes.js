@@ -11,7 +11,7 @@ integration and continuous development where there is no downtime where there is
 * Agile is popularly used in may companies
 
   Requirements gathering --> System Design --> Coding   --> Testing --> Deployment 
-
+  
         ====================== Resolver =================
 
 resolve is a interface which is implemented to a created resolver class cli provides the command to 
@@ -236,6 +236,13 @@ Change detection cycle uses zone.js library and the change detection complete pr
 to just show the result of the event it is effecting the performance of the project and it takes high bundle size 
 Here comes the signals handy that it will change only where the html need to change This is the advantage 
 of signals
+
+
+-------------------Promises --------------------------
+
+pending: initial state, neither fulfilled nor rejected.
+fulfilled: meaning that the operation was completed successfully.
+rejected: meaning that the operation failed.
 
 -------- Route Guards -----------
 1.CanActivate Route Guard 

@@ -452,6 +452,11 @@ promise.then((result)=>{
 //     myObject.func();
 
 
+//For sorting numbers in a array
+
+let array2 = [1,21,2,32,9,1];
+
+array2.sort((a,b)=> a-b)
 
 let sentence = "hello hello world";
 
@@ -1044,7 +1049,7 @@ function isPrime(n){
     
   }
 
-  console.log(isPrime(2))
+  console.log(isPrime(4))
 
 
 /* let person = {

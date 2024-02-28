@@ -4,22 +4,57 @@
 Why Java is a platform-independent language 
 1.When we compile java file it will give a byte code(.class file)
 2.With the byte code we can interpret with JVM and then it will convert to machine redable code
-3. javac filename.java----------------> filename.class -------------------> machile code
-                          Compiles                      JRE(Interpreter)
+3. javac filename.java ----------------> filename.class -------------------> machile code
+                          Compiles                      JVM(Interpreter)
                         JDK compiler                           +
                                                         JIT (Compiler)
-            
+
 4.When the bytecode results in  compilation of javafile with the JDK it will again interpreted by the JVM and checks the code by line
 by line and JIT compiler will again fastens the process by compiling  and convers to machine code                     
 
              ---------------- JDK vs JRE vs JVM -------------------------
 All JDK JRE and JVM are platform dependent(For every platform there is separate sofwares)
-1.JDK is Java development Kit which consists of JRE and development tools to write java code 
-2.JRE is Java Runtime Environment , It is the software which need to be present for running the java code
+1.JDK is Java development Kit which consists of JRE and development tools and compiler  like (javac, Java debugger, Javadoc tool, Jconsole, Jar tool The jar tool is used to create and manage Java archives (JAR files), 
+JLink is a command-line tool that is introduced in JDK 9. It is used to create a custom Java Runtime Image)to write java code 
+2.JRE is Java Runtime Environment and some standard libraries , It is the software which need to be present for running the java code
 End users need to have JRE to run the java code.
 3.JVM is Java Virtual Machine , with the JVM we can interpret the bytecode(.class file) to machine readable code
 it is responsible for running the java code
 
+Memories spaces while running a java appiliation
+1.Heap Area : Object craeting area , Garbage Collection playground
+2.Stack Area
+3.Class Area
+4.Meta Space : Holds metadata about the class when jvm loads
+
+Garbage Collector and Young Generation vs Old Generation:
+Memory management is done in java by Garbage Collector ,GC will manage memory by two Generations like Young Generation and Old Generation
+Young Generation is where the objects create here and also most of the cleaning process is done here and most of the objects die here
+when the long living objects those have reference attached to any object it will be transfored to Old Generation Old generation Memory will
+be cleaned less often than Young Generation this will improve performance and memory management where GC will always clean young generation more
+often, Cleaning the Old Generation will be a heavier and slower process
+
+List Iterator vs Iterator: 
+With Iterator and List Iterator we can iterate the array , Iterator will be helping to move in a single direction but only forward in the 
+array but List Iterator will help us in moving in back and forth in both direction. We can use Iterator for simple tasks like iterating objects
+and we can use listIterator for for adding , removing objects like that
+
+ReadOnly Array list: 
+By Readonly arraylist we can create a collection object which cannot be modified once it is created and we cannot add new elements to it 
+we can do this by using one method in collection called unmodifiableList so it will not be modified once it is created. This unmodification
+of a array list will help to securing this collection object( array list) for not adding any more objects into it when we are passing the 
+object to other libraries and this will keep integrity of the code.
+
+
+public class A {
+public static void main(String[] args)
+{
+if (true)
+break;
+}
+}
+
+We cannot put break statement in the if condition it will give syntax error
 
 Method Overloading : In Java class if we have 2 methods with same method name and  different number of 
 parameters or different parameters then it can be called as method Overloading 
@@ -151,10 +186,10 @@ person1.intern() --> it will refer to the SCP Object which is created while crea
 
 The difference between in this two is when we create a string object with new key word it will check in the 
 string constant pool wheather the literal is present or not , if it is not present it will create a literal
-in string constant pool and then comes back to normal heap memory and again it will creates a new literal and the 
-corresponding reference will be pointed to the new literal created out side of the SCP, If the literal is 
+in string constant pool and then comes back to normal heap memory and again it will creates a new object and the 
+corresponding reference will be pointed to the new object created out side of the SCP, If the literal is 
 present inside the SCP it will comes in heap memory and creates one and corresponding reference is pointed
-to literal created out side of the SCP
+to object created out side of the SCP
 
 When creating with out new keyword it will directly points to the literal in SCP (If it exists), If not it 
 will create a new literal in the SCP
@@ -162,17 +197,21 @@ will create a new literal in the SCP
 
 -------------------Difference between == operator and equals method --------------
 
-The primary functionality of this operator(==) and equals method is same it will checks the string characters 
-in it and it will return true or false ,
+Generally for == operator and .equals method are ment for reference comparission but .equals method is a 
+method of the object class Generally it will check for reference comparison but if we override it
+with content comparison it will check for content comparison , By default string class has 
+.equals method overridden for content comparison 
 
 == operator will check the Memory reference of the object, like it will check if the two references are equal are 
 pointing to the same object
+
+By default string, wrapper classes and collection classes has .equals method overridden for content comparison
 
 .equal method is present in the object calss , it is the parent class for all clases in java , It will check 
 the value in the variables
 
 --------------------- final vs finally vs finalize -------------------
-Final(keyword) ----> variable , method or class can give this key word as final which restricts the scope of the same
+Final(keyword) ----> variable , method or class can give this key word as final 
 variable ---> can not be assigned anothertime
 method ---> cannot be overriden after extension of the class
 class ---> cannot be extended 
@@ -198,6 +237,24 @@ class test {
 }
 
 Calling System.gc() is just a hint to the JVM that it's a good time to perform garbage collection, but it doesn't force the garbage collector to run immediately.
+
+---------------------this and super keywords ----------------------
+
+super: super is the reserved keyword in Java that is used to invoke constructors and methods of the parent class
+This is possible only when one class inherits another class
+
+this: this is the reserved keyword in Java that can be used to invoke the constructors, methods, static members, etc.
+
+--------------------- How a Java Program runs ----------------------------
+Initially Jvm will call Class loader then class loader will create a class static area in heap memory with class name
+and identifies the static members in program from top to bottom variables are assigned with default values and then
+after the main method is called then if any object creation is there in main method then the object is created in 
+heap memory Class members have only one copy but non-static members have multiple copies,each copy per object.
+
+*Class static area has all class members, static varibles and static methods 
+*In Heap area there will be Class static area and if any object is created then the object will be stored in
+heap area Jvm have another area called stack memory where every method context will be executed inside the
+stack in LIFO manner.
 
 ----------------- Access Specifiers -----------------------
 
@@ -230,9 +287,13 @@ The class which can create only one object is called as a Singleton class,
 2.getInstance method should be present in the class to create one object and getInstance method should be static
 so we can call the method without creating object
 
+Usecase of Singleton class : 
+Consider a logging system in a large application where you want to ensure that all log messages go through a 
+single logging instance, and you want to configure this logging instance in a centralized manner.
+
 class Animal {
 	
-	public static Animal get_instance = null;
+	private static Animal get_instance = null;
 	
 	private Animal() { // with constructor makes as private we cannot create a object outside the class
 		
@@ -256,6 +317,15 @@ class Animal {
 5.If class has mutable objects then only return copy of objects so that it will be immutable
 
 *Primitive varibles are immutable in java
+
+Shallow Copy vs. Deep Copy: If we simply assign the immutableList parameter to the immutableList field directly (i.e., this.immutableList = immutableList;), 
+the reference to the list passed as a parameter would be stored in the ImmutableClass instance. This would make the ImmutableClass susceptible to modifications 
+from external code that has a reference to the original list. By creating a new ArrayList instance and copying the elements from the parameter list to the new 
+list (new ArrayList<>(immutableList)), we ensure that modifications to the original list do not affect the state of the ImmutableClass.
+
+
+usecase : State Sharing: If your objects need to be shared across different parts of your application or passed as parameters to methods,
+immutability can prevent unintended changes to the object's state by other parts of the code.
 
 final class ImmutableClass {
 	
@@ -311,13 +381,16 @@ then it should provide implementations if not it should be named as abstract
 * Abstract classes cannot create object but it has constructor,But we can extends to another class and create
 object of that class
 
+This is because constructors in abstract classes can be invoked by subclasses during their instantiation process.
+
 ----------------- Marker Interface -----------------------
 
 Marker interface is a empty interface which dont have any member variables and member methods, Marker interfaces
 are present to just information that it is related to cloning or serialization
 Ex : Cloneable , Serializable
 
-
+an empty interface in java is known as Marker or Tag Interface. 
+It is used to deliver type information at runtime to the JVM so that it can take some action based on the information received.
 
 String s3 = new String("Gwen");
 String s4 = new String("Gwen");
@@ -343,7 +416,13 @@ Both Comparable and Comparator can be used to sort the collection objects. Both 
 Comparable has compareTo method and Comparator has compare method to sort collection objects
 Comparable can sort objects by only one single element but Comparator can sort objects by by multiple elements
 with the help of Collections.sort() method the collection object will be sorted
-for Comparator we need to use Collections.sort(list,new Comparator())
+for Comparator we need to use Collections.sort(list,new SampleComparator())
+
+We have default sorting logic for String class and Integer class mentioning below we can put this login in compareTo method 
+or compare method for sorting 
+		return o1.playerName.compareTo(o2.playerName); // String sorting in dictionary manner 
+		
+	    return Integer.compare(o1.playerRuns,o2.playerRuns); // Integer sorting in ascending order
 
 ---------------- Execption Hierarchy ----------------
 Execption Hierarchy is a has a root class Throwable and it has Error and Exception classes
@@ -403,8 +482,8 @@ if it has a exception, Throws keyword will only stop the compiletime error for t
 *All Exceptions will occur at the runtime of a program CheckedException called as CompileTimeException
  and unchecked Exception is called as  RunTimeException for the Naming purposes only
 
-*When a method has a throw keyword and the method is called in main method or some other methods the these methods should
-also use throw keyword
+*When a method has a Throws keyword and the method is called in main method or some other methods the these methods should
+also use Throws keyword
 
 ----------Throw Keyword-----------
 We can create a custom exception with the Throw keyword and we can call this with throw it says that 
@@ -918,6 +997,12 @@ PutMapping id Idompotent but PostMapping id not Idompotent
 With the GetMapping annotation also we can keep a RequestBody annotation in the method paraments it will work
 but it is not a recommanded practice.
 
+---------------------------Post vs patch vs put-------------------------
+POST is primarily used to create a new resource on the server.
+PUT is used to update or create a resource at a specific URI
+PATCH is used to apply partial modifications to a resource.
+
+
 400 : Bad Request
 401 : Unauthorized
 403 : Forbidden
@@ -1136,6 +1221,19 @@ Optional classes has three methods
 1.Optional.of() --> should use when we know the object passing inside should not be null any way
 2.Optional.ofNullable()--> should use when we know the object passing inside may or may not be null 
 3.Optional.empty()
+Ex : 
+String name = // some potentially null value
+Optional<String> optionalName = Optional.ofNullable(name);
+
+// Without Optional
+if (name != null) {
+    // do something with name
+}
+
+// With Optional
+optionalName.ifPresent(n -> {
+    // do something with n
+});
 
 -------------------Design patterns-------------
 Factory DP:
@@ -1144,8 +1242,15 @@ It is used to create objects without exposing the instantiation logic to the cli
 The Factory Pattern provides an interface for creating objects, allowing subclasses to decide which class to instantiate.
  This promotes loose coupling and makes the code more flexible and extensible.
 
+*In larger applications, you might have different implementations of services that need to be used based on runtime conditions or configuration.
+By employing the Factory Pattern, you can abstract the instantiation of service objects, allowing the application to switch between different 
+implementations without modifying the client code. This promotes modularity and facilitates easier maintenance and testing.
+
 ----------------Entity Manager Factory----------------
 
-An entity manager is the interface through which Java applications interact with the JPA persistence context. 
+An EntityManagerFactory is the interface through which Java applications interact with the JPA persistence context. 
 It is responsible for managing the lifecycle of entities 
+
+*Jpa provides a set of annotations and APIs for mapping Java objects to relational database tables and vice versa
+
 */

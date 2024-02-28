@@ -123,6 +123,9 @@ parse the html
 defer : when there is defer keyword the source will be fetched parallaly with the parcing of the 
 html after completion of html parcing the source will be executed
 
+*While "display: none" completely removes the element from the webpage layout, "visibility: hidden" 
+only hides the element but keeps its position intact.
+
              ==================== CORS Headers ==========================
 CORS means Cross Origin Resourse Sharing is a mechanisiam which helps to share the data in secure manner
 When a server restricted to send a requestes only for some particular domain then it will be helpfull
@@ -138,12 +141,12 @@ accept-control-allow-origin
 accept-control-allow-headers
 accept-control-allow-methods etc ..there you can see the restrictions which are put buy server
 
+---------------Ajax------------------------
+Ajax is Asynchronious JavaScript and XMl , With this technique we can handle the asynchronous api calls. In General
+Ajax will use XHR requestes to send data to server and receives to client with out page reloading 
+With Ajax, you can update parts of a web page without reloading the entire page
 
 
-
-*/
-
-/* 
                   ================   Closures   ===============
 In Javascript closures defined as function and  its lexical scope together ,  lexical scope means 
 the references of the parent function or parent parent functions 
@@ -155,9 +158,7 @@ all the extra arguments into a array with this (...) dots after the variable
 ================  Spread Operator -=========================
 Spread operator can convert the given array into the elements of the array 
 
-*/
 
-/* 
 =========================  Higher order function aka First class functions =======================
 When a function takes a function or returns another function are called as Higher order functions
 
