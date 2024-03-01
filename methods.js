@@ -1032,6 +1032,32 @@ function nthLargestNumber(n){
 
 console.log(nthLargestNumber(1))
 
+// 5 --> 5 * 4 * 3 *1
+
+function findFactoral(num){
+  
+    if(num == 1 || num == 0){
+      return 1;
+    }
+    
+    return num * findFactoral(num - 1)
+    
+  }
+  
+  console.log(findFactoral(3))
+  
+  function fibNumbesSum(num){
+    
+    if(num <= 1 ){
+      return num;
+    }
+    
+    return fibNumbes(num - 1) + fibNumbes(num - 2)
+    
+  }
+  
+  console.log(fibNumbes(3),"Fibonacci numbers")
+
 
 function isPrime(n){
   

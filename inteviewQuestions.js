@@ -349,5 +349,63 @@ Think of minimizing the count of the notes that you'll be giving me to produce a
 *
 
 
+================ GE digital Interview Questions ===================
+1.Logic Testing
+  How can you rate your self in javascript?
+
+* 1st question : department=[
+{departmentName:"Civil",deployementId:1},
+{departmentName:"Chemical",deployementId:2}
+]
+  Employees = [
+    {EmployeeName: "John",phoneNumber:"xxxxxxxxxxxxxxxx",departmentId:1},
+    {EmployeeName: "Peter",phoneNumber:"xxxxxxxxxxxxxxxx",departmentId:2},
+    {EmployeeName: "Parker",phoneNumber:"xxxxxxxxxxxxxxxx",departmentId:2},
+  ]
+
+  Output SHould be :
+  Employees = [
+    {EmployeeName: "John",phoneNumber:"xxxxxxxxxxxxxxxx",departmentId:1,departmentName:"Civil"},
+    {EmployeeName: "Peter",phoneNumber:"xxxxxxxxxxxxxxxx",departmentId:2,departmentName:"Chemical" },
+    {EmployeeName: "Parker",phoneNumber:"xxxxxxxxxxxxxxxx",departmentId:2, departmentName:"Chemical"},
+  ]
+
+  and need to remove the departmentId property from the above object
+
+2 Question : 
+Employees =[
+  {employeeName : 1, employeName : "Joe"},
+  {employeeName : 2, employeName : "Nick"},
+  {employeeName : 3, employeName : "John"},
+  {employeeName : 4, employeName : "Parker"},
+  {employeeName : 5, employeName : "yash"},
+  {employeeName : 6, employeName : "potter"},
+]
+
+output : 
+Batmentain pair =[ [{employeeName : 1, employeName : "Joe"}, {employeeName : 2, employeName : "Nick"}],
+[{employeeName : 3, employeName : "John"}, {employeeName : 4, employeName : "Parker"}],
+[{employeeName : 5, employeName : "yash"}, {employeeName : 6, employeName : "potter"}] ] 
+
+Batmentain Pair should has the random members and should pair should be unique
+
+2.Angular
+*How can we change the language in angular code to sweddesh to English
+*What is difference between http and https
+*Can we call a http(What is not secure) api from the angular and what happens when we call and what will be the response
+*What is websockets and how can we use this
+*How can we run angular application in Https in local
+*How can we change a default port in angular
+*What happens internally when we call ng serve in angular
+
+3.Java
+*What is manager class in java
+*How do we connect java application with database
+*What property settings need to configure in connecting to database
+*Where we write our bussiness login in spring-boot code
+
+4.CI/CD
+*How can we deploy our application in to server with (Jenkins)
+
 */
 
