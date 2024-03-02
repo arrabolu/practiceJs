@@ -404,8 +404,55 @@ Batmentain Pair should has the random members and should pair should be unique
 *What property settings need to configure in connecting to database
 *Where we write our bussiness login in spring-boot code
 
+4.Testing
+*Why we need to write test cases in angular with 
+*Have you used another 
+
 4.CI/CD
 *How can we deploy our application in to server with (Jenkins)
+
+================ Summa Linguae ==============
+
+1.Angular Questions
+
+*What are lifecycle methods in angular
+*What is the first lifecycle method is called
+*When ngOnchange will called
+*What is Angular custom pipes and how can we create it
+*How can we use pipes in angular
+*What methods we use in custom pipe class and how can we manipulate data in pipes
+*What is viewChild decorator in angular
+*When we use EventEmitters and what is @output decorator
+*What is lazyloading in angular 
+*Benifites if using lazy loading
+*What is angular routing in angular when we can use routerlink 
+*What is the use of RouterLinkActive
+*How do we configure route in angular
+*Can we have only one routing module in application
+*When we use wildcard routing in angular
+*Have you use ng-template and what is the use case of using ng-template 
+*What is the use of ng-container in angular
+*What is the dependency injection in angular
+*Have you worked with other libriaries in angular like angular-Material and other libraries
+
+2.Javascript
+*What is the difference between the Typescript and Javascript
+*WHat is the callback function in javascript
+*What is promises in javascript
+*What is the use of filter method in javascript
+*What is the use of find method in js
+
+3.Css 
+*What are pseudo classes in css
+*What is the use of z-index
+*What is Css position properties, What are the different uses of css position properties
+*Differences between absolute and relative and fixed and static
+*What are the ways we can do angular application responsive
+*Have you used meta tags,Where we can use it
+
+4.Source controls 
+*What kind of version controls you have used 
+*What are the basic commands in git
 
 */
 
