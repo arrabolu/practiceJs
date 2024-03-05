@@ -389,6 +389,9 @@ Batmentain pair =[ [{employeeName : 1, employeName : "Joe"}, {employeeName : 2, 
 
 Batmentain Pair should has the random members and should pair should be unique
 
+*Apply any sorting algorithm 
+*What sorting algorithms do you know
+
 2.Angular
 *How can we change the language in angular code to sweddesh to English
 *What is difference between http and https
@@ -453,6 +456,79 @@ Batmentain Pair should has the random members and should pair should be unique
 4.Source controls 
 *What kind of version controls you have used 
 *What are the basic commands in git
+
+
+============== Safran Interview =========================
+How can you rate your self in the node.js
+Node.js
+*What is node.js
+*What is event driven architecture
+*What is Event loop in node.js
+*What is libuv
+*How can you scale the 1000 of requests at a time in node.js
+*Discussed about the modules in node.js
+
+
+Javascript
+*What is javascript
+*What is callbacks 
+*What is callback hell and how why we are not using callback
+*What are the first order functions in javascript
+
+*code 1:
+var a = 1
+function foo(){
+var a = 2
+console.log(a)
+}
+foo()
+console.log(a)
+guess the output :
+2
+1
+
+*What is a clousure in the javascript
+Below is the code for clousure
+*code 2 :
+for (var i = 1; i <= 5; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+
+3.Typescript 
+*What is the difference between typescript and javascript 
+
+4.Angular
+*Have you implemented eslint in your project
+*Can you give me some sinarious when we get the eslint errors
+*What is the difference between the services and observables
+*Difference between subject and observables
+*What is services in angular
+*how can we pass the data between componenets
+*How angular execution will be done 
+*You know about outbound issue in type-script in angular bellow is the error 
+how can we resolve
+bellow is the code for outbound error 
+*code 3 :
+class Counter {
+  private count: number = 0;
+  increment() {
+    this.count++;
+  }
+  logCount() {
+    setTimeout(function() {
+      console.log(this.count); // 'this' is not bound correctly
+    }, 1000);
+  }
+}
+
+const myCounter = new Counter();
+myCounter.increment();
+myCounter.logCount();
+
+
+
 
 */
 

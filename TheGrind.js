@@ -62,7 +62,7 @@ console.log(Number.prototype)
 // Number.prototype = 4
 
 
-var x = {
+/* var x = {
     name : "vinay",
     city : "Siddipet",
     id : 3626
@@ -89,7 +89,7 @@ let promise1 = new Promise((resolve, reject) => {
 
 promise1.then((x) => {
     console.log(x)
-})
+}) */
 
 // setInterval(() => {
 //     let number = 2
@@ -98,15 +98,15 @@ promise1.then((x) => {
 //     multiplyer++
 // }, 100);
 
-var x = {
+/* var x = {
     name : "vinay",
     city : "Siddipet",
     id : 3626
 }
 
-let ab = [1,2,3,4]
+let ab = [1,2,3,4] */
 
-for (const key in ab) {
+/* for (const key in ab) {
     // if (Object.hasOwnProperty.call(object, key)) {
     //     const element = object[key];
         
@@ -117,7 +117,7 @@ for (const key in ab) {
 
 const arrayg = [1,2,3,4,5]
 
-console.log(arrayg.reverse(),"Resultantarray")
+console.log(arrayg.reverse(),"Resultantarray") */
 
 // 2 *1 = 2
 // 2 *2 = 4
@@ -134,13 +134,23 @@ console.log(arrayg.reverse(),"Resultantarray")
 
 // console.log(details)
 
-let x1 = 1;
+// let x1 = 1;
 
-setInterval((num)=>{
+// setInterval((num)=>{
 
-    console.log(2 * x1 );
+//     console.log(2 * x1 );
 
-    x1++;
+//     x1++;
 
 
-},1000)
+// },1000)
+
+let a = 1
+
+function foo(){
+let a = 2
+console.log(a)
+}
+
+foo()
+console.log(a)

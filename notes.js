@@ -378,17 +378,17 @@ console.log(user)
 
     
   <--------------------Call--------------->
-  Call method can be used to invoke a function by passing a reference of the varible or
- object which is pointed to this keyword 
+ Call method can be used to invoke a function by passing a reference of the varible or
+object which is pointed to this keyword 
 
  <---------------------Apply--------------->
-  With the help of apply method we can invoke a function and pass reference which is pointing to a 
-  this keyword and send parameter will bbe array of the values what should me the next arguments of 
-  the function
+With the help of apply method we can invoke a function and pass reference which is pointing to a 
+this keyword and send parameter will bbe array of the values what should me the next arguments of 
+the function
 
   <----------------------Bind----------------->
-  bind will be same as the call and apply but it will return a function which we can invoke when 
-  we need after some time 
+bind will be same as the call and apply but it will return a function which we can invoke when 
+we need after some time 
 
 
 
