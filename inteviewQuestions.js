@@ -348,6 +348,19 @@ Think of minimizing the count of the notes that you'll be giving me to produce a
 *If Ey Offers you less salary compared to other will you join
 *
 
+Thank you for asking. My typical day as a developer begins with waking up at 8 am, allowing myself ample time to prepare for the day ahead. 
+I find that starting my day with a clear mind helps me to focus better on the tasks at hand. Upon arriving at the office around 10 am, 
+I dive straight into my work, prioritizing the most pressing tasks or any ongoing projects. I believe in maintaining a balance between 
+individual work and collaboration, so I make sure to touch base with my team members regularly, either in person or through virtual channels.
+
+Around 2 pm, I take a break for lunch, which not only rejuvenates me but also allows me to step away from my screen and recharge. After lunch, 
+I return to my tasks with renewed energy, often tackling any challenging problems or delving into creative solutions. Throughout the day, I 
+strive to maintain a proactive approach, staying updated on industry trends, and seeking opportunities for professional growth, whether through 
+online courses, workshops, or networking events.
+
+Overall, I find that sticking to a structured routine helps me stay organized and productive, enabling me to meet deadlines effectively and deliver
+high-quality work. I'm always open to adapting my routine based on the needs of the project or team, as flexibility is key in the dynamic field of
+software development."
 
 ================ GE digital Interview Questions ===================
 1.Logic Testing
@@ -527,8 +540,96 @@ const myCounter = new Counter();
 myCounter.increment();
 myCounter.logCount();
 
+*need to check on just basic things and should not go blank when asked basic things like 
+What is javascript?
 
 
+======================  Value labs 1st Round ===================
+All questions are asked from the resume
+
+*What is lazyloading
+*Is lazy loading only applicable for routes level
+*When there are some components in a parent component then when some components are not visible with using 
+ngIf then the not visible component will be downloaded to the browser ?? 
+*What are Dynamic interfaces and responsive user interfaces in angular
+*How can we do our website responsive with angular(By which directive we can make our site responsive with out using media queries)
+*How can you make the angular site responsive with different screens like mobile , laptop, tablet and desktop
+*What have you done with Ngx-Rating Library in your project
+*What is Ngx-webcam and what have you done with this in your project
+*How can you reduce your base64 size(Not reduces the size of just validated the size and wrote the if logic)
+        --- dont push your self if you didn't remember the implementation and answer
+*What is the dependencies in our package.json
+*We have dependencies and dev-dependencies what they are used for?
+*Give me a example of a dev-dependency?
+*When we run in local npm run then dev-dependencies will install in our local node-modules??
+*If we have cap at on of the dependency like angular-core : ^1.0.0 and next version is 1.1.0 and 2.0.0 then 
+if we run npm install then what will be the version of the dependency
+
+======================  Value labs 2nd Round ===================
+*Do you use Agile methodology in your project
+*How the angular project works in general in architecture level
+*What is the lazy loading and eager loading modules in angular
+*How can we pass the data between component to another component
+*What is differencce between Promises and observables
+*Which framework we use to write angular test-cases
+*What is the use of beforeEach() method in jasmine
+*How we write test cases in angular explain me the spec file in angular
+*We have dependencies and dev-dependencies what they are used for?
+*Find duplicates in a array const a = [1,2,2,3,4,4,5] Explain
+**What is the difference between const let and var
+*WHat are clousers in javascript how they are usefull
+*Expalin the node.js application flow when request coming from client to server
+*How you deploy the code do you use ci/cd pipelines
+*have you used github for version control
+*What is the version of angular and node.js    15,14
+*How can you rate your self in angular and node.js  4,3
+
+
+=========================== values labs 3rd round =======================
+*How can we do angular application faster and explain the different ways how we can handle it
+*how can we handle a error in angular and in api calls
+*some more technical questions
+
+
+================================ Delta Airlines ====================
+*How can we pass data from one component to another 
+*Implementation of data passing from child component to parent 
+*How ngRx works in angular
+*{
+  "1": "1a",
+  "2": {
+    "3": "3a",
+    "4": "4a",
+    "5": {
+       "6": "6a",
+       "7": {
+           "8": "8a"
+       }
+    }
+  },
+  "9": "9a"
+}
+*How can we take key and values from a object
+
+solution:
+function extractKeysAndValues(obj) {
+    const keys = [];
+    const values = [];
+
+    function traverse(obj) {
+        for (let key in obj) {
+            keys.push(key);
+            values.push(obj[key]);
+            if (typeof obj[key] === 'object') {
+                traverse(obj[key]);
+            }
+        }
+    }
+
+    traverse(obj);
+
+    return { keys, values };
+}
 
 */
 

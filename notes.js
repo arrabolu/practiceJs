@@ -147,7 +147,7 @@ Ajax will use XHR requestes to send data to server and receives to client with o
 With Ajax, you can update parts of a web page without reloading the entire page
 
 
-                  ================   Closures   ===============
+================   Closures   ===============
 In Javascript closures defined as function and  its lexical scope together ,  lexical scope means 
 the references of the parent function or parent parent functions 
 
@@ -441,6 +441,9 @@ const obj = {
    Currying in js is a technique used for loose coupling the multiple arguments in  a function and breakdown it to 
   single arguments we will pass the previous argument to the next function with the help of closure,
     it can be handled with the help of clousures or bind method 
+
+a technique in JavaScript that allows you to transform functions with multiple arguments into a sequence of functions, 
+each taking one argument at a time
 
     Example:
 
